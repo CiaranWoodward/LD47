@@ -3,12 +3,14 @@ extends Node2D
 # Tile size in pixels
 const TILE_SIZE = 75
 
+onready var moveTile = preload("res://Tiles/MoveTile.tscn")
+
 var MapDict = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	#test code
+	SetTile(Vector2(5,5), moveTile.instance())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -24,10 +26,12 @@ func TileToWorldCoords(tc : Vector2):
 	var retval = tc * TILE_SIZE
 	return retval
 
-func GetTile(x : int, y : int):
-	var key = [x, y]
-	return MapDict[key]
+func GetTile(tc : Vector2):
+	var key = tc.round() #Probably unnecessary, wish we had Vec2i
+	return MapDict.get(key)
 
-func SetTile(x : int, y : int, object):
-	var key = [x, y]
+func SetTile(tc : Vector2, object : Node2D):
+	var key = tc.round() #Probably unnecessary, wish we had Vec2i
 	MapDict[key] = object
+	self.add_child(object)
+	object.set_position(TileToWorldCoords(key))
