@@ -4,6 +4,7 @@ extends Node2D
 const TILE_SIZE = 75
 
 onready var moveTile = preload("res://Tiles/MoveTile.tscn")
+onready var wallTile = preload("res://Tiles/WallTile.tscn")
 
 var MapDict = {}
 
@@ -12,6 +13,7 @@ func _ready():
 	#test code
 	SetTile(Vector2(5,5), moveTile.instance())
 	GetTile(Vector2(5,5)).SetDirection(Global.Dir.RIGHT)
+	SetTile(Vector2(8,5), wallTile.instance())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
