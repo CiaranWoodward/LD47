@@ -11,6 +11,7 @@ var MapDict = {}
 func _ready():
 	#test code
 	SetTile(Vector2(5,5), moveTile.instance())
+	GetTile(Vector2(5,5)).SetDirection(Global.Dir.RIGHT)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
