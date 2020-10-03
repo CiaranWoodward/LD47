@@ -48,6 +48,7 @@ func _handle_stopped():
 func _handle_stopping():
 	var targetPos = get_parent().TileToWorldCoords(GetTileCoords())
 	cur_state = State.STOPPING
+	cur_speed = 0
 	tweener.remove_all();
 	tweener.interpolate_property(self, "position", position, targetPos, STOP_TIME, STOP_TRANS, STOP_EASE)
 	tweener.start()

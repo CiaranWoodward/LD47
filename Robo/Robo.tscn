@@ -8,6 +8,7 @@ extents = Vector2( 27.3609, 27.3031 )
 
 [node name="Robo" type="KinematicBody2D"]
 script = ExtResource( 2 )
+ACCEL_TRANS = 10
 STOP_TIME = 0.5
 STOP_TRANS = 10
 STOP_EASE = 1
