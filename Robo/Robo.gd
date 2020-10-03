@@ -44,6 +44,7 @@ func _handle_stopped():
 		cur_direction = curTile.GetPushVec()
 		if cur_direction != Vector2.ZERO:
 			cur_state = State.MOVING
+			get_node("AnimationPlayer").play("Walk")
 			_speed_up()
 
 func _handle_stopping():
@@ -53,6 +54,7 @@ func _handle_stopping():
 	tweener.remove_all();
 	tweener.interpolate_property(self, "position", position, targetPos, STOP_TIME, STOP_TRANS, STOP_EASE)
 	tweener.start()
+	get_node("AnimationPlayer").stop(false)
 
 func _handle_collision(kc : KinematicCollision2D):
 	var target = kc.collider
