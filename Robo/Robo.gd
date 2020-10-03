@@ -17,6 +17,7 @@ var cur_direction = Vector2(0, 0)
 var cur_speed : float = 0
 
 var cur_item = Global.ItemType.NONE
+var cur_itemvis
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -59,9 +60,15 @@ func _handle_collision(kc : KinematicCollision2D):
 	
 	if _hasItem() && cur_state == State.MOVING && target.has_method("GiveItem") && target.GiveItem(cur_item):
 		cur_item = Global.ItemType.NONE
+		if is_instance_valid(cur_itemvis):
+			cur_itemvis.queue_free()
+			cur_itemvis = null
 		shouldStop = true
 	elif !_hasItem() && target.has_method("TakeItem") && cur_state == State.MOVING:
 		cur_item = target.TakeItem()
+		cur_itemvis = Global.instance_item(cur_item)
+		if is_instance_valid(cur_itemvis):
+			self.add_child(cur_itemvis)
 		shouldStop = true
 	if target.has_method("IsStopper") && target.IsStopper():
 		shouldStop = true

@@ -9,3 +9,11 @@ enum EaseType {IN = 0,OUT=1,IN_OUT=2,OUT_IN=3}
 func _ready():
 	pass # Replace with function body.
 
+func instance_item(itemnum : int):
+	match itemnum:
+		ItemType.BAR:
+			return preload("res://Items/BarItem.tscn").instance()
+		ItemType.COG:
+			return preload("res://Items/CogItem.tscn").instance()
+		ItemType.PLATE:
+			return preload("res://Items/Graphics/Plate.png").instance()
