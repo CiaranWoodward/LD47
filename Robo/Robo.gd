@@ -16,6 +16,8 @@ var cur_state = State.STOPPED
 var cur_direction = Vector2(0, 0)
 var cur_speed : float = 0
 
+var cur_item = Global.ItemType.NONE
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SnapToGrid()
@@ -26,11 +28,14 @@ func GetTileCoords():
 func SnapToGrid():
 	set_position(get_parent().TileToWorldCoords(GetTileCoords()))
 
+func _hasItem():
+	return (cur_item != Global.ItemType.NONE)
+
 func _speed_up():
 	tweener.interpolate_property(self, "cur_speed", cur_speed, MAX_SPEED, ACCEL_TIME, ACCEL_TRANS, ACCEL_EASE)
 	tweener.start()
 
-func _handle_stopped(delta):
+func _handle_stopped():
 	var curTile = get_parent().GetTile(GetTileCoords())
 	if !is_instance_valid(curTile):
 		return
@@ -40,24 +45,39 @@ func _handle_stopped(delta):
 			cur_state = State.MOVING
 			_speed_up()
 
-func _handle_collision(delta, kc : KinematicCollision2D):
-	if kc.collider.has_method("IsStopper") && kc.collider.IsStopper():
-		var targetPos = get_parent().TileToWorldCoords(GetTileCoords())
-		cur_state = State.STOPPING
-		tweener.remove_all();
-		tweener.interpolate_property(self, "position", position, targetPos, STOP_TIME, STOP_TRANS, STOP_EASE)
-		tweener.start()
+func _handle_stopping():
+	var targetPos = get_parent().TileToWorldCoords(GetTileCoords())
+	cur_state = State.STOPPING
+	tweener.remove_all();
+	tweener.interpolate_property(self, "position", position, targetPos, STOP_TIME, STOP_TRANS, STOP_EASE)
+	tweener.start()
+
+func _handle_collision(kc : KinematicCollision2D):
+	var target = kc.collider
+	var shouldStop = false
+	
+	if _hasItem() && cur_state == State.MOVING && target.has_method("GiveItem") && target.GiveItem(cur_item):
+		cur_item = Global.ItemType.NONE
+		shouldStop = true
+	elif !_hasItem() && target.has_method("TakeItem") && cur_state == State.MOVING:
+		cur_item = target.TakeItem()
+		shouldStop = true
+	if target.has_method("IsStopper") && target.IsStopper():
+		shouldStop = true
+		
+	if shouldStop:
+		_handle_stopping()
 
 func _physics_process(delta):
 	match cur_state:
 		State.STOPPED:
-			_handle_stopped(delta)
+			_handle_stopped()
 		State.WORKING:
 			pass
 		State.MOVING:
 			var kc = self.move_and_collide(cur_direction * cur_speed * delta)
 			if is_instance_valid(kc):
-				_handle_collision(delta, kc)
+				_handle_collision(kc)
 
 
 func _on_MoveTweener_tween_all_completed():

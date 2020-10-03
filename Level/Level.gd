@@ -5,6 +5,7 @@ const TILE_SIZE = 75
 
 onready var moveTile = preload("res://Tiles/MoveTile.tscn")
 onready var wallTile = preload("res://Tiles/WallTile.tscn")
+onready var dumpTile = preload("res://Tiles/DumpTile.tscn")
 
 var MapDict = {}
 
@@ -22,7 +23,7 @@ func _ready():
 	SetTile(Vector2(5,6), wallTile.instance())
 	SetTile(Vector2(8,5), wallTile.instance())
 	SetTile(Vector2(7,2), wallTile.instance())
-	SetTile(Vector2(4,3), wallTile.instance())
+	SetTile(Vector2(4,3), dumpTile.instance())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -47,3 +48,7 @@ func SetTile(tc : Vector2, object : Node2D):
 	MapDict[key] = object
 	self.add_child(object)
 	object.set_position(TileToWorldCoords(key))
+
+func RmTile(tc : Vector2):
+	var key = tc.round() #Probably unnecessary, wish we had Vec2i
+	MapDict.erase(key)
