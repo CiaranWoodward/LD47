@@ -8,3 +8,4 @@ script = ExtResource( 1 )
 
 [node name="Robo" parent="." instance=ExtResource( 2 )]
 position = Vector2( 402.276, 368.269 )
+MAX_SPEED = 170.0

@@ -13,7 +13,16 @@ func _ready():
 	#test code
 	SetTile(Vector2(5,5), moveTile.instance())
 	GetTile(Vector2(5,5)).SetDirection(Global.Dir.RIGHT)
+	SetTile(Vector2(6,5), moveTile.instance())
+	SetTile(Vector2(7,5), moveTile.instance())
+	SetTile(Vector2(7,3), moveTile.instance())
+	GetTile(Vector2(7,3)).SetDirection(Global.Dir.LEFT)
+	SetTile(Vector2(5,3), moveTile.instance())
+	GetTile(Vector2(5,3)).SetDirection(Global.Dir.DOWN)
+	SetTile(Vector2(5,6), wallTile.instance())
 	SetTile(Vector2(8,5), wallTile.instance())
+	SetTile(Vector2(7,2), wallTile.instance())
+	SetTile(Vector2(4,3), wallTile.instance())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

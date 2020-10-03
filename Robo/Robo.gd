@@ -44,7 +44,7 @@ func _handle_collision(delta, kc : KinematicCollision2D):
 	if kc.collider.has_method("IsStopper") && kc.collider.IsStopper():
 		var targetPos = get_parent().TileToWorldCoords(GetTileCoords())
 		cur_state = State.STOPPING
-		tweener.stop_all();
+		tweener.remove_all();
 		tweener.interpolate_property(self, "position", position, targetPos, STOP_TIME, STOP_TRANS, STOP_EASE)
 		tweener.start()
 
