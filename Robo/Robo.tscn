@@ -245,7 +245,6 @@ texture = ExtResource( 1 )
 visible = false
 
 [node name="ArmsDown" type="Sprite" parent="Robo/Back"]
-visible = false
 position = Vector2( -3.74174, -31.9245 )
 rotation = 3.14159
 texture = ExtResource( 5 )
@@ -261,6 +260,7 @@ texture = ExtResource( 10 )
 offset = Vector2( 3.12549, 37.6672 )
 
 [node name="ArmsUp" type="Sprite" parent="Robo/Back"]
+visible = false
 position = Vector2( 0.234108, -18.9629 )
 texture = ExtResource( 1 )
 

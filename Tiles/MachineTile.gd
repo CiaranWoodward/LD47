@@ -23,6 +23,7 @@ func _ready():
 		inventory.push_back(false)
 	dropTile = DROP_TILE.instance()
 	get_parent().call_deferred("set_tile", tc + dirvec, dropTile)
+	dropTile.connect("item_taken", self, "_item_taken")
 
 func _checkComplete():
 	var complete = true
@@ -39,7 +40,7 @@ func _checkComplete():
 		get_node("WorkingTimer").start(work_time);
 
 func _item_taken():
-	pass
+	isReady = true
 
 func IsStopper():
 	return true
