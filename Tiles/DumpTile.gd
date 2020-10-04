@@ -1,4 +1,5 @@
-extends StaticBody2D
+tool
+extends BaseTile
 
 var cur_item = Global.ItemType.NONE
 var cur_itemvis

@@ -172,6 +172,7 @@ tracks/6/keys = {
 
 [node name="Robo" type="KinematicBody2D"]
 script = ExtResource( 2 )
+ACCEL_TIME = 1.0
 ACCEL_TRANS = 10
 STOP_TIME = 0.5
 STOP_TRANS = 10

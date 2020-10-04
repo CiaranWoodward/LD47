@@ -1,3 +1,5 @@
+tool
+
 extends Node2D
 
 # Tile size in pixels
@@ -11,23 +13,7 @@ var MapDict = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#test code
-	set_tile(Vector2(5,5), moveTile.instance())
-	get_tile(Vector2(5,5)).SetDirection(Global.Dir.RIGHT)
-	set_tile(Vector2(6,5), moveTile.instance())
-	set_tile(Vector2(7,5), moveTile.instance())
-	set_tile(Vector2(7,3), moveTile.instance())
-	get_tile(Vector2(7,3)).SetDirection(Global.Dir.LEFT)
-	set_tile(Vector2(5,3), moveTile.instance())
-	get_tile(Vector2(5,3)).SetDirection(Global.Dir.DOWN)
-	set_tile(Vector2(5,6), wallTile.instance())
-	set_tile(Vector2(8,5), wallTile.instance())
-	set_tile(Vector2(7,2), wallTile.instance())
-	set_tile(Vector2(4,3), dumpTile.instance())
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	pass
 
 func world_to_tile_coords(pos : Vector2):
 	var retval : Vector2 = pos
@@ -45,9 +31,14 @@ func get_tile(tc : Vector2):
 
 func set_tile(tc : Vector2, object : Node2D):
 	var key = tc.round() #Probably unnecessary, wish we had Vec2i
-	MapDict[key] = object
 	object.set_position(tile_to_world_coords(key))
+	# The child is responsible for registering itself
 	self.add_child(object)
+
+func reg_tile(object : Node2D):
+	var key = world_to_tile_coords(object.position)
+	MapDict[key] = object
+	object.set_position(tile_to_world_coords(key)) #snap
 
 func rm_tile(tc : Vector2):
 	var key = tc.round() #Probably unnecessary, wish we had Vec2i

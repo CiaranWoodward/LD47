@@ -1,8 +1,7 @@
-extends Node2D
+tool
+extends BaseTile
 
-onready var sprite = get_node("Sprite")
-
-var dir_vec= Vector2(0, -1)
+export(Global.Dir) var direction = Global.Dir.UP setget SetDirection
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,19 +9,16 @@ func _ready():
 
 func SetDirection(dir : int):
 	dir = dir % 4
+	direction = dir
 	match dir:
 		Global.Dir.UP:
-			dir_vec = Vector2(0, -1)
-			sprite.set_rotation(0)
+			set_rotation(0)
 		Global.Dir.RIGHT:
-			dir_vec = Vector2(1, 0)
-			sprite.set_rotation(PI * 0.5)
+			set_rotation(PI * 0.5)
 		Global.Dir.DOWN:
-			dir_vec = Vector2(0, 1)
-			sprite.set_rotation(PI)
+			set_rotation(PI)
 		Global.Dir.LEFT:
-			dir_vec = Vector2(-1, 0)
-			sprite.set_rotation(PI * 1.5)
+			set_rotation(PI * 1.5)
 
 func GetPushVec():
-	return dir_vec
+	return Global.get_dir_vec(direction)

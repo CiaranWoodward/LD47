@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 enum State {STOPPED, WORKING, MOVING, STOPPING}
+tool
 
 export var MAX_SPEED : float = 120.0
 export var ACCEL_TIME : float = 1.5
@@ -29,7 +30,8 @@ func GetTileCoords():
 	return get_parent().world_to_tile_coords(get_position())
 
 func SnapToGrid():
-	set_position(get_parent().tile_to_world_coords(GetTileCoords()))
+	if get_parent().has_method("tile_to_world_coords"):
+		set_position(get_parent().tile_to_world_coords(GetTileCoords()))
 
 func _hasItem():
 	return (cur_item != Global.ItemType.NONE)
@@ -119,7 +121,13 @@ func _handle_collision(kc : KinematicCollision2D):
 	if shouldStop:
 		_handle_stopping()
 
+func _process(delta):
+	if Engine.editor_hint:
+		SnapToGrid()
+
 func _physics_process(delta):
+	if Engine.editor_hint:
+		return
 	match cur_state:
 		State.STOPPED:
 			_handle_stopped()

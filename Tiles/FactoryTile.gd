@@ -1,4 +1,5 @@
-extends StaticBody2D
+tool
+extends BaseTile
 
 const DROP_TILE = preload("res://Tiles/DropTile.tscn")
 
@@ -37,6 +38,12 @@ func _checkComplete():
 
 func _item_taken():
 	pass
+
+func _process(delta):
+	if Engine.editor_hint && get_parent().has_method("tile_to_world_coords"):
+		var dirvec = Global.get_dir_vec(direction)
+		var tc = get_parent().world_to_tile_coords(get_position())
+		dropTile.set_position(get_parent().tile_to_world_coords(tc + dirvec))
 
 func IsStopper():
 	return true

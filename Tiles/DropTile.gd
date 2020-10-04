@@ -1,4 +1,5 @@
-extends StaticBody2D
+tool
+extends BaseTile
 
 signal item_taken
 

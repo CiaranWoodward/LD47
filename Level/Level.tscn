@@ -1,11 +1,33 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://Robo/Robo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tiles/WallTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tiles/MoveTile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tiles/DumpTile.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="DumpTile" parent="." instance=ExtResource( 5 )]
+position = Vector2( 675, 75 )
+
 [node name="Robo" parent="." instance=ExtResource( 2 )]
-position = Vector2( 402.276, 368.269 )
+position = Vector2( 225, 375 )
 MAX_SPEED = 170.0
+
+[node name="WallTile" parent="." instance=ExtResource( 3 )]
+position = Vector2( 750, 375 )
+
+[node name="MoveTile" parent="." instance=ExtResource( 4 )]
+position = Vector2( 225, 375 )
+rotation = 1.5708
+direction = 1
+
+[node name="MoveTile2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 675, 375 )
+
+[node name="MoveTile3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 675, 150 )
+rotation = 4.71239
+direction = 3
