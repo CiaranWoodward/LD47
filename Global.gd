@@ -14,11 +14,11 @@ func _ready():
 func instance_item(itemnum : int):
 	match itemnum:
 		ItemType.BAR:
-			return preload("res://Items/BarItem.tscn").instance()
+			return preload("res://Items/IronBar.tscn").instance()
 		ItemType.COG:
-			return preload("res://Items/CogItem.tscn").instance()
+			return preload("res://Items/Cog.tscn").instance()
 		ItemType.PLATE:
-			return preload("res://Items/PlateItem.tscn").instance()
+			return preload("res://Items/IronPlate.tscn").instance()
 
 func get_dir_vec(dir : int):
 	var dir_vec = Vector2.ZERO
