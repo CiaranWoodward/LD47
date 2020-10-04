@@ -3,12 +3,18 @@ extends BaseTile
 
 signal item_taken
 
+onready var animtree = get_node("AnimationTree")
+onready var animsm : AnimationNodeStateMachinePlayback = animtree["parameters/playback"]
+
+var direction = Global.Dir.UP
 var cur_item = Global.ItemType.NONE
 var cur_itemvis
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_setCollision()
+	animtree.active = true
+	animsm.start("Off")
 
 func _setCollision():
 	if HasItem():
@@ -28,10 +34,17 @@ func _GiveItem(item : int):
 	cur_itemvis = Global.instance_item(cur_item)
 	if is_instance_valid(cur_itemvis):
 		self.add_child(cur_itemvis)
+	animsm.travel("On")
 	return true
+
+func GetPushVec():
+	return Global.get_dir_vec(direction)
 
 func HasItem():
 	return (cur_item != Global.ItemType.NONE)
+
+func Use():
+	animsm.travel("PulseOn")
 
 func TakeItem():
 	var retval = cur_item
@@ -42,6 +55,7 @@ func TakeItem():
 	_setCollision()
 	if retval != Global.ItemType.NONE:
 		emit_signal("item_taken")
+		animsm.travel("Off")
 	return retval
 
 func IsStopper():

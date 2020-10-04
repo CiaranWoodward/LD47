@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Tiles/Graphics/drop.png" type="Texture" id=1]
 [ext_resource path="res://Tiles/DropTile.gd" type="Script" id=2]
@@ -176,6 +176,12 @@ animation = "Off"
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "On"
 
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "TurnOff"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "TurnOn"
+
 [sub_resource type="AnimationNodeAnimation" id=8]
 animation = "TurnOff"
 
@@ -194,16 +200,31 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachine" id=14]
 states/Off/node = SubResource( 6 )
 states/Off/position = Vector2( 424, 36 )
 states/On/node = SubResource( 7 )
 states/On/position = Vector2( 649, 149 )
+states/PulseOff/node = SubResource( 16 )
+states/PulseOff/position = Vector2( 410, -69 )
+states/PulseOn/node = SubResource( 17 )
+states/PulseOn/position = Vector2( 245, -28 )
 states/TurnOff/node = SubResource( 8 )
 states/TurnOff/position = Vector2( 424, 149 )
 states/TurnOn/node = SubResource( 9 )
 states/TurnOn/position = Vector2( 649, 36 )
-transitions = [ "TurnOn", "On", SubResource( 10 ), "TurnOff", "Off", SubResource( 11 ), "Off", "TurnOn", SubResource( 12 ), "On", "TurnOff", SubResource( 13 ) ]
+transitions = [ "TurnOn", "On", SubResource( 10 ), "TurnOff", "Off", SubResource( 11 ), "Off", "TurnOn", SubResource( 12 ), "On", "TurnOff", SubResource( 13 ), "PulseOn", "PulseOff", SubResource( 18 ), "Off", "PulseOn", SubResource( 19 ), "PulseOff", "Off", SubResource( 20 ) ]
+graph_offset = Vector2( 65, -38 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 

@@ -22,6 +22,7 @@ func _ready():
 	for item in required_items:
 		inventory.push_back(false)
 	dropTile = DROP_TILE.instance()
+	dropTile.direction = direction
 	get_parent().call_deferred("set_tile", tc + dirvec, dropTile)
 	dropTile.connect("item_taken", self, "_item_taken")
 
