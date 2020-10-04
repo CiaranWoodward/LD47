@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Items/Graphics/DumpTile0000.png" type="Texture" id=1]
+
+[node name="DumpTile" type="Node2D"]
+z_index = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="DumpTile" type="Sprite" parent="Sprite"]
+position = Vector2( 0.467102, -0.00585938 )
+texture = ExtResource( 1 )
+offset = Vector2( -1.80057, -1.66568 )
