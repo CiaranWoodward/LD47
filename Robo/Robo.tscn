@@ -202,6 +202,7 @@ texture = ExtResource( 8 )
 offset = Vector2( 2.93148, 0.810994 )
 
 [node name="Side" type="Sprite" parent="Robo"]
+visible = false
 
 [node name="TopDecor" type="Sprite" parent="Robo/Side"]
 position = Vector2( -3.12549, -37.6671 )
@@ -218,7 +219,6 @@ texture = ExtResource( 11 )
 texture = ExtResource( 12 )
 
 [node name="Front" type="Sprite" parent="Robo"]
-visible = false
 
 [node name="TopDecor" type="Sprite" parent="Robo/Front"]
 position = Vector2( -3.12549, -37.6671 )
