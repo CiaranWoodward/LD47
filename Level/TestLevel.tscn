@@ -138,6 +138,9 @@ position = Vector2( 300, 150 )
 [node name="WallTile14" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 375, 75 )
 
+[node name="WallTile15" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 300, 75 )
+
 [node name="WallTile12" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 375, 450 )
 

@@ -50,7 +50,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "On"
 length = 3.5
 loop = true
@@ -91,7 +91,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.709804 ), Color( 1, 1, 1, 0.596078 ), Color( 1, 1, 1, 0.709804 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "TurnOff"
 length = 0.8
 tracks/0/type = "value"
@@ -131,8 +131,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0.709804 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "TurnOn"
+[sub_resource type="Animation" id=5]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/Square:modulate")
@@ -217,6 +216,7 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="Tile" type="Sprite" parent="Sprite"]
@@ -233,9 +233,9 @@ texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Off = SubResource( 2 )
-anims/On = SubResource( 4 )
-anims/TurnOff = SubResource( 5 )
-anims/TurnOn = SubResource( 3 )
+anims/On = SubResource( 3 )
+anims/TurnOff = SubResource( 4 )
+anims/TurnOn = SubResource( 5 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 14 )
