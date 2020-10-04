@@ -16,19 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="LD47"
-run/main_scene="res://Level/TestLevel.tscn"
+run/main_scene="res://Level/Level.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Global.gd"
-BaseTile="res://Tiles/BaseTile.gd"
-
-[layer_names]
-
-2d_physics/layer_1="AllRobo"
-2d_physics/layer_2="FullRobo"
-2d_physics/layer_3="EmptyRobo"
 
 [rendering]
 
