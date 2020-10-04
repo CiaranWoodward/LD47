@@ -18,6 +18,7 @@ func _ready():
 			var newTile = floorTile.instance()
 			newTile.position = tile_to_world_coords(Vector2(x, y))
 			$Floor.add_child(newTile)
+	$MainCam.MaxPos = Vector2(LEVEL_SIZE_X, LEVEL_SIZE_Y) * TILE_SIZE
 
 func world_to_tile_coords(pos : Vector2):
 	var retval : Vector2 = pos

@@ -18,6 +18,8 @@ var dir_vec = Vector2.ZERO
 var moving = false
 var dragging = false
 
+var MaxPos = Vector2(1, 1)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -36,6 +38,17 @@ func _input(event):
 	
 	if dragging && event is InputEventMouseMotion:
 		position -= event.relative * zoom.x
+		_bound_level()
+
+func _bound_level():
+	if position.x < 0:
+		position.x = 0
+	if position.y < 0:
+		position.y = 0
+	if position.x > MaxPos.x:
+		position.x = MaxPos.x
+	if position.y > MaxPos.y:
+		position.y = MaxPos.y
 
 func _physics_process(delta):
 	var rezoom = false
@@ -89,3 +102,4 @@ func _physics_process(delta):
 		moving = false
 	
 	position += dir_vec * speed * delta * zoom.x
+	_bound_level()
