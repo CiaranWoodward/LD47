@@ -25,7 +25,7 @@ func _GenItem():
 	cur_itemvis = Global.instance_item(item_type)
 	has_item = true
 	if is_instance_valid(cur_itemvis):
-		self.add_child(cur_itemvis)
+		$ItemPoint.add_child(cur_itemvis)
 	return true
 
 func HasItem():
