@@ -26,10 +26,10 @@ func _ready():
 	SnapToGrid()
 
 func GetTileCoords():
-	return get_parent().WorldToTileCoords(get_position())
+	return get_parent().world_to_tile_coords(get_position())
 
 func SnapToGrid():
-	set_position(get_parent().TileToWorldCoords(GetTileCoords()))
+	set_position(get_parent().tile_to_world_coords(GetTileCoords()))
 
 func _hasItem():
 	return (cur_item != Global.ItemType.NONE)
@@ -62,7 +62,7 @@ func _handle_startmove():
 			sprites.get_node("Back").visible = true
 
 func _handle_stopped():
-	var curTile = get_parent().GetTile(GetTileCoords())
+	var curTile = get_parent().get_tile(GetTileCoords())
 	if !is_instance_valid(curTile):
 		return
 	if curTile.has_method("GetPushVec"):
@@ -71,7 +71,7 @@ func _handle_stopped():
 			_handle_startmove()
 
 func _handle_stopping():
-	var targetPos = get_parent().TileToWorldCoords(GetTileCoords())
+	var targetPos = get_parent().tile_to_world_coords(GetTileCoords())
 	cur_state = State.STOPPING
 	cur_speed = 0
 	tweener.remove_all();

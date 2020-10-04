@@ -4,7 +4,7 @@
 [ext_resource path="res://Tiles/FactoryTile.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 35.9765, 36.6676 )
+extents = Vector2( 34.4861, 34.7195 )
 
 [node name="FactoryTile" type="StaticBody2D"]
 script = ExtResource( 2 )

@@ -17,3 +17,17 @@ func instance_item(itemnum : int):
 			return preload("res://Items/CogItem.tscn").instance()
 		ItemType.PLATE:
 			return preload("res://Items/Graphics/Plate.png").instance()
+
+func get_dir_vec(dir : int):
+	var dir_vec = Vector2.ZERO
+	dir = dir % 4
+	match dir:
+		Global.Dir.UP:
+			dir_vec = Vector2(0, -1)
+		Global.Dir.RIGHT:
+			dir_vec = Vector2(1, 0)
+		Global.Dir.DOWN:
+			dir_vec = Vector2(0, 1)
+		Global.Dir.LEFT:
+			dir_vec = Vector2(-1, 0)
+	return dir_vec
