@@ -11,6 +11,8 @@ export(Global.TransitionType) var STOP_TRANS = Tween.TRANS_BOUNCE
 export(Global.EaseType) var STOP_EASE = Tween.EASE_IN
 
 onready var tweener = get_node("MoveTweener")
+onready var animator = get_node("AnimationPlayer")
+onready var sprites = get_node("Robo")
 
 var cur_state = State.STOPPED
 var cur_direction = Vector2(0, 0)
@@ -36,6 +38,29 @@ func _speed_up():
 	tweener.interpolate_property(self, "cur_speed", cur_speed, MAX_SPEED, ACCEL_TIME, ACCEL_TRANS, ACCEL_EASE)
 	tweener.start()
 
+func _handle_startmove():
+	cur_state = State.MOVING
+	_speed_up()
+	if cur_direction.x != 0:
+		animator.play("SideWalk")
+		sprites.get_node("Side").visible = true
+		sprites.get_node("Front").visible = false
+		sprites.get_node("Back").visible = false
+		if cur_direction.x > 0:
+			sprites.scale.x = abs(sprites.scale.x)
+		else:
+			sprites.scale.x = abs(sprites.scale.x) * -1
+	if cur_direction.y != 0:
+		animator.play("Walk")
+		sprites.scale.x = abs(sprites.scale.x)
+		sprites.get_node("Side").visible = false
+		if cur_direction.y > 0:
+			sprites.get_node("Front").visible = true
+			sprites.get_node("Back").visible = false
+		else:
+			sprites.get_node("Front").visible = false
+			sprites.get_node("Back").visible = true
+
 func _handle_stopped():
 	var curTile = get_parent().GetTile(GetTileCoords())
 	if !is_instance_valid(curTile):
@@ -43,9 +68,7 @@ func _handle_stopped():
 	if curTile.has_method("GetPushVec"):
 		cur_direction = curTile.GetPushVec()
 		if cur_direction != Vector2.ZERO:
-			cur_state = State.MOVING
-			get_node("AnimationPlayer").play("Walk")
-			_speed_up()
+			_handle_startmove()
 
 func _handle_stopping():
 	var targetPos = get_parent().TileToWorldCoords(GetTileCoords())
@@ -54,7 +77,23 @@ func _handle_stopping():
 	tweener.remove_all();
 	tweener.interpolate_property(self, "position", position, targetPos, STOP_TIME, STOP_TRANS, STOP_EASE)
 	tweener.start()
-	get_node("AnimationPlayer").stop(false)
+	animator.stop(false)
+
+func _handle_armsup(armsup : bool):
+	if armsup:
+		sprites.get_node("Back/ArmsDown").visible = false
+		sprites.get_node("Front/ArmsDown").visible = false
+		sprites.get_node("Side/SideArmsDown").visible = false
+		sprites.get_node("Back/ArmsUp").visible = true
+		sprites.get_node("Front/ArmsUp").visible = true
+		sprites.get_node("Side/SideArmsUp").visible = true
+	else:
+		sprites.get_node("Back/ArmsDown").visible = true
+		sprites.get_node("Front/ArmsDown").visible = true
+		sprites.get_node("Side/SideArmsDown").visible = true
+		sprites.get_node("Back/ArmsUp").visible = false
+		sprites.get_node("Front/ArmsUp").visible = false
+		sprites.get_node("Side/SideArmsUp").visible = false
 
 func _handle_collision(kc : KinematicCollision2D):
 	var target = kc.collider
@@ -66,12 +105,14 @@ func _handle_collision(kc : KinematicCollision2D):
 			cur_itemvis.queue_free()
 			cur_itemvis = null
 		shouldStop = true
+		_handle_armsup(false)
 	elif !_hasItem() && target.has_method("TakeItem") && cur_state == State.MOVING:
 		cur_item = target.TakeItem()
 		cur_itemvis = Global.instance_item(cur_item)
 		if is_instance_valid(cur_itemvis):
 			self.add_child(cur_itemvis)
 		shouldStop = true
+		_handle_armsup(true)
 	if target.has_method("IsStopper") && target.IsStopper():
 		shouldStop = true
 		
