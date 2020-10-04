@@ -1,6 +1,5 @@
 tool
-
-extends Node2D
+extends YSort
 
 # Tile size in pixels
 const TILE_SIZE = 75

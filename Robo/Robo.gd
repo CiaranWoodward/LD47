@@ -25,6 +25,7 @@ var cur_itemvis
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SnapToGrid()
+	_set_collision()
 
 func GetTileCoords():
 	return get_parent().world_to_tile_coords(get_position())
@@ -112,16 +113,26 @@ func _handle_collision(kc : KinematicCollision2D):
 		_handle_armsup(false)
 	elif !_hasItem() && target.has_method("TakeItem") && cur_state == State.MOVING:
 		cur_item = target.TakeItem()
-		cur_itemvis = Global.instance_item(cur_item)
-		if is_instance_valid(cur_itemvis):
-			self.add_child(cur_itemvis)
-		shouldStop = true
-		_handle_armsup(true)
+		if cur_item != Global.ItemType.NONE:
+			cur_itemvis = Global.instance_item(cur_item)
+			if is_instance_valid(cur_itemvis):
+				self.add_child(cur_itemvis)
+			shouldStop = true
+			_handle_armsup(true)
 	if target.has_method("IsStopper") && target.IsStopper():
 		shouldStop = true
-		
+	
+	_set_collision()
 	if shouldStop:
 		_handle_stopping()
+
+func _set_collision():
+	if cur_item == Global.ItemType.NONE:
+		collision_layer = Global.PhyLayer.ROBO + Global.PhyLayer.EMPTY_ROBO
+		collision_mask = Global.PhyLayer.ROBO + Global.PhyLayer.EMPTY_ROBO
+	else:
+		collision_layer = Global.PhyLayer.ROBO + Global.PhyLayer.FULL_ROBO
+		collision_mask = Global.PhyLayer.ROBO + Global.PhyLayer.FULL_ROBO
 
 func _process(delta):
 	if Engine.editor_hint:

@@ -9,15 +9,15 @@ func _ready():
 	# test code:
 	GiveItem(Global.ItemType.BAR)
 	
-	_setCollision(_hasItem())
+	_setCollision()
 
-func _setCollision(enabled : bool):
-	if enabled:
-		self.collision_layer = 1
-		self.collision_mask = 1
+func _setCollision():
+	if _hasItem():
+		self.collision_layer = Global.PhyLayer.ROBO + Global.PhyLayer.EMPTY_ROBO
+		self.collision_mask = Global.PhyLayer.ROBO + Global.PhyLayer.EMPTY_ROBO
 	else:
-		self.collision_layer = 0
-		self.collision_mask = 0
+		self.collision_layer = Global.PhyLayer.FULL_ROBO
+		self.collision_mask = Global.PhyLayer.FULL_ROBO
 
 func _hasItem():
 	return (cur_item != Global.ItemType.NONE)
@@ -28,6 +28,7 @@ func GiveItem(item : int):
 	if _hasItem():
 		return false
 	cur_item = item
+	_setCollision()
 	cur_itemvis = Global.instance_item(cur_item)
 	if is_instance_valid(cur_itemvis):
 		self.add_child(cur_itemvis)
@@ -39,6 +40,7 @@ func TakeItem():
 	if is_instance_valid(cur_itemvis):
 		cur_itemvis.queue_free()
 		cur_itemvis = null
+	_setCollision()
 	return retval
 
 func IsStopper():

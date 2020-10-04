@@ -171,7 +171,10 @@ tracks/6/keys = {
 }
 
 [node name="Robo" type="KinematicBody2D"]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource( 2 )
+MAX_SPEED = 170.0
 ACCEL_TIME = 1.0
 ACCEL_TRANS = 10
 STOP_TIME = 0.5
