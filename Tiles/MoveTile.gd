@@ -29,7 +29,7 @@ func GetPushVec():
 	return Global.get_dir_vec(direction)
 
 func Use():
-	if animplayer.current_animation == "On":
+	if animsm.get_current_node() == "On":
 		animsm.travel("On 2")
 	else:
 		animsm.travel("On")

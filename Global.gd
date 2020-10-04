@@ -33,3 +33,6 @@ func get_dir_vec(dir : int):
 		Global.Dir.LEFT:
 			dir_vec = Vector2(-1, 0)
 	return dir_vec
+
+func deposit_item(itemnum : int):
+	pass

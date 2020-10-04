@@ -43,6 +43,7 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 1
 
 [node name="Tile" type="Sprite" parent="Sprite"]
+z_index = -1
 texture = ExtResource( 5 )
 
 [node name="In" type="Sprite" parent="Sprite"]

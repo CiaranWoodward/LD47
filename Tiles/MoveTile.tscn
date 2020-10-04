@@ -169,7 +169,7 @@ states/TurnOff/position = Vector2( 412, 178 )
 states/TurnOn/node = SubResource( 9 )
 states/TurnOn/position = Vector2( 634, 82 )
 transitions = [ "Off", "TurnOn", SubResource( 10 ), "On", "TurnOff", SubResource( 11 ), "TurnOff", "Off", SubResource( 12 ), "TurnOn", "On", SubResource( 13 ), "On", "On 2", SubResource( 14 ), "On 2", "On", SubResource( 15 ), "On 2", "TurnOff", SubResource( 16 ) ]
-graph_offset = Vector2( 0, -112.514 )
+graph_offset = Vector2( -77, 60.486 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 

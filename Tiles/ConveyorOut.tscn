@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Tiles/Graphics/Conveyor/HoodShadow0000.png" type="Texture" id=1]
 [ext_resource path="res://Tiles/Graphics/Conveyor/Belt0000.png" type="Texture" id=2]
 [ext_resource path="res://Tiles/Graphics/Conveyor/Out0000.png" type="Texture" id=3]
 [ext_resource path="res://Tiles/Graphics/Conveyor/TileBottom0000.png" type="Texture" id=4]
 [ext_resource path="res://Tiles/Graphics/Conveyor/Tile0000.png" type="Texture" id=5]
+[ext_resource path="res://Tiles/ConveyorOut.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 34.4, 34.4 )
@@ -28,6 +29,7 @@ tracks/0/keys = {
 }
 
 [node name="ConveyorOut" type="StaticBody2D"]
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -38,14 +40,18 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 1
 
 [node name="Tile" type="Sprite" parent="Sprite"]
+z_index = -1
 texture = ExtResource( 5 )
 
 [node name="Out" type="Sprite" parent="Sprite"]
 texture = ExtResource( 3 )
 
 [node name="Belt" type="Sprite" parent="Sprite"]
-position = Vector2( 0, 12.4293 )
+position = Vector2( 0, 20 )
 texture = ExtResource( 2 )
+
+[node name="ItemPoint" type="Position2D" parent="Sprite"]
+scale = Vector2( 2, 2 )
 
 [node name="HoodShadow" type="Sprite" parent="Sprite"]
 texture = ExtResource( 1 )
@@ -55,3 +61,6 @@ texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Belt = SubResource( 2 )
+
+[node name="Fader" type="Tween" parent="."]
+[connection signal="tween_completed" from="Fader" to="." method="_on_Fader_tween_completed"]
