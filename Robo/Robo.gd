@@ -71,6 +71,8 @@ func _handle_stopped():
 		cur_direction = curTile.GetPushVec()
 		if cur_direction != Vector2.ZERO:
 			_handle_startmove()
+	if curTile.has_method("Use"):
+		curTile.Use()
 
 func _handle_stopping():
 	var targetPos = get_parent().tile_to_world_coords(GetTileCoords())

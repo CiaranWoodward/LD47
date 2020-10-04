@@ -3,9 +3,14 @@ extends BaseTile
 
 export(Global.Dir) var direction = Global.Dir.UP setget SetDirection
 
+onready var animplayer = get_node("AnimationPlayer")
+onready var animtree = get_node("AnimationTree")
+onready var animsm : AnimationNodeStateMachinePlayback = animtree["parameters/playback"]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	animtree.active = true
+	animsm.start("Off")
 
 func SetDirection(dir : int):
 	dir = dir % 4
@@ -22,3 +27,9 @@ func SetDirection(dir : int):
 
 func GetPushVec():
 	return Global.get_dir_vec(direction)
+
+func Use():
+	animsm.travel("On")
+	if animplayer.current_animation == "On":
+		animplayer.stop()
+		animplayer.play("On")
