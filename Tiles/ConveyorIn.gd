@@ -6,12 +6,14 @@ export var item_period = 5.0
 
 onready var itemtimer = $ItemTimer
 
+onready var icon = Global.instance_item(item_type)
 var cur_itemvis
 var has_item = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	itemtimer.start(item_period)
+	$IconPoint.add_child(icon)
 	if !Engine.editor_hint:
 		$AnimationPlayer.play("Belt")
 
