@@ -6,6 +6,8 @@
 [node name="Level" type="YSort"]
 script = ExtResource( 1 )
 
+[node name="Floor" type="Node2D" parent="."]
+
 [node name="MainCam" type="Camera2D" parent="."]
 position = Vector2( 512.578, 303.008 )
 current = true

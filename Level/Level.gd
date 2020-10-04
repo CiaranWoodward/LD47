@@ -3,12 +3,21 @@ extends YSort
 
 # Tile size in pixels
 const TILE_SIZE = 75
+const floorTile = preload("res://Tiles/FloorTile.tscn")
+
+export var LEVEL_SIZE_X : int = 10
+export var LEVEL_SIZE_Y : int = 10
 
 var MapDict = {}
+var built_tiles = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	for x in range(LEVEL_SIZE_X):
+		for y in range(LEVEL_SIZE_Y):
+			var newTile = floorTile.instance()
+			newTile.position = tile_to_world_coords(Vector2(x, y))
+			$Floor.add_child(newTile)
 
 func world_to_tile_coords(pos : Vector2):
 	var retval : Vector2 = pos
