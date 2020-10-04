@@ -34,6 +34,12 @@ func SnapToGrid():
 	if get_parent().has_method("tile_to_world_coords"):
 		set_position(get_parent().tile_to_world_coords(GetTileCoords()))
 
+func GetCurItem():
+	return cur_item
+
+func Stop():
+	_handle_stopping()
+
 func _hasItem():
 	return (cur_item != Global.ItemType.NONE)
 
