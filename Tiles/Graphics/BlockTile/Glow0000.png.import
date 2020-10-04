@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cross0000.png-23d68d9ae7f0587114897103b3246550.stex"
+path="res://.import/Glow0000.png-33b6bae84d18c7deb665d130d8edda41.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles/Graphics/DumpTile/Cross0000.png"
-dest_files=[ "res://.import/Cross0000.png-23d68d9ae7f0587114897103b3246550.stex" ]
+source_file="res://Tiles/Graphics/BlockTile/Glow0000.png"
+dest_files=[ "res://.import/Glow0000.png-33b6bae84d18c7deb665d130d8edda41.stex" ]
 
 [params]
 

@@ -37,6 +37,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 3.17839, 0.26487 )
 scale = Vector2( 0.5, 0.5 )
+z_index = 1
 
 [node name="Machine" type="Sprite" parent="Sprite"]
 position = Vector2( -6.69096, -0.670559 )

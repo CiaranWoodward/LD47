@@ -119,8 +119,9 @@ func _handle_collision(kc : KinematicCollision2D):
 				$"Robo/ItemPoint".add_child(cur_itemvis)
 			shouldStop = true
 			_handle_armsup(true)
-	if target.has_method("IsStopper") && target.IsStopper():
-		shouldStop = true
+	if target.has_method("IsStopper"):
+		if target.IsStopper(cur_item):
+			shouldStop = true
 	
 	_set_collision()
 	if shouldStop:

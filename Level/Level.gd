@@ -4,10 +4,6 @@ extends YSort
 # Tile size in pixels
 const TILE_SIZE = 75
 
-onready var moveTile = preload("res://Tiles/MoveTile.tscn")
-onready var wallTile = preload("res://Tiles/WallTile.tscn")
-onready var dumpTile = preload("res://Tiles/DumpTile.tscn")
-
 var MapDict = {}
 
 # Called when the node enters the scene tree for the first time.

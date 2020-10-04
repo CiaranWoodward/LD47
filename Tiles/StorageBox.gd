@@ -54,5 +54,5 @@ func TakeItem():
 	_set_itemvis()
 	return retval
 
-func IsStopper():
+func IsStopper(_itemtype):
 	return true

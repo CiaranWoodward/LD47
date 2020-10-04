@@ -43,7 +43,7 @@ func TakeItem():
 		itemtimer.start(item_period)
 	return retval
 
-func IsStopper():
+func IsStopper(_itemtype):
 	return true
 
 func _on_ItemTimer_timeout():

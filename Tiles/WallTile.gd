@@ -5,5 +5,5 @@ extends BaseTile
 func _ready():
 	pass # Replace with function body.
 
-func IsStopper():
+func IsStopper(_itemtype):
 	return true

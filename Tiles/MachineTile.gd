@@ -43,7 +43,7 @@ func _checkComplete():
 func _item_taken():
 	isReady = true
 
-func IsStopper():
+func IsStopper(_itemtype):
 	return true
 
 func GiveItem(item : int):

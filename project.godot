@@ -72,6 +72,7 @@ zoom_out={
 2d_physics/layer_1="AllRobo"
 2d_physics/layer_2="FullRobo"
 2d_physics/layer_3="EmptyRobo"
+2d_physics/layer_4="SpecialTile"
 
 [rendering]
 

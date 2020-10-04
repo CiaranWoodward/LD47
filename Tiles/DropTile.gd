@@ -58,5 +58,5 @@ func TakeItem():
 		animsm.travel("Off")
 	return retval
 
-func IsStopper():
+func IsStopper(_itemtype):
 	return HasItem()
