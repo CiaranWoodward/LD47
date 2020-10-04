@@ -6,9 +6,6 @@ var cur_itemvis
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# test code:
-	GiveItem(Global.ItemType.BAR)
-	
 	_setCollision()
 
 func _setCollision():

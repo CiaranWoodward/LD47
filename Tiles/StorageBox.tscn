@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Tiles/DumpTile.gd" type="Script" id=1]
+[ext_resource path="res://Tiles/StorageBox.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Graphics/dump.png" type="Texture" id=2]
 [ext_resource path="res://Tiles/Graphics/Box0000.png" type="Texture" id=3]
 [ext_resource path="res://Tiles/Graphics/BoxFront0000.png" type="Texture" id=4]
@@ -20,6 +20,18 @@ texture = ExtResource( 2 )
 [node name="Box" type="Sprite" parent="Sprite"]
 position = Vector2( 3.53554, 9.54594 )
 texture = ExtResource( 3 )
+
+[node name="Item1" type="Position2D" parent="Sprite/Box"]
+position = Vector2( -19.0215, -30.3676 )
+rotation = -0.287803
+
+[node name="Item2" type="Position2D" parent="Sprite/Box"]
+position = Vector2( 15.3506, -29.3665 )
+rotation = 0.31785
+
+[node name="Item3" type="Position2D" parent="Sprite/Box"]
+position = Vector2( -3.67084, -16.6855 )
+rotation = 0.165311
 
 [node name="BoxFront" type="Sprite" parent="Sprite/Box"]
 texture = ExtResource( 4 )

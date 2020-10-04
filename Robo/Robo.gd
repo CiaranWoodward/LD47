@@ -116,7 +116,7 @@ func _handle_collision(kc : KinematicCollision2D):
 		if cur_item != Global.ItemType.NONE:
 			cur_itemvis = Global.instance_item(cur_item)
 			if is_instance_valid(cur_itemvis):
-				self.add_child(cur_itemvis)
+				$"Robo/ItemPoint".add_child(cur_itemvis)
 			shouldStop = true
 			_handle_armsup(true)
 	if target.has_method("IsStopper") && target.IsStopper():
@@ -134,7 +134,7 @@ func _set_collision():
 		collision_layer = Global.PhyLayer.ROBO + Global.PhyLayer.FULL_ROBO
 		collision_mask = Global.PhyLayer.ROBO + Global.PhyLayer.FULL_ROBO
 
-func _process(delta):
+func _process(_delta):
 	if Engine.editor_hint:
 		SnapToGrid()
 
