@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bar.png-932e29de668da2282c9f0d863730c531.stex"
+path="res://.import/CopperBar0000.png-6d14fd34c7b366534f6db0eaa62fb99e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Graphics/Bar.png"
-dest_files=[ "res://.import/Bar.png-932e29de668da2282c9f0d863730c531.stex" ]
+source_file="res://Items/Graphics/CopperBar0000.png"
+dest_files=[ "res://.import/CopperBar0000.png-6d14fd34c7b366534f6db0eaa62fb99e.stex" ]
 
 [params]
 

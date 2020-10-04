@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Tiles/Graphics/wall.png" type="Texture" id=1]
+[ext_resource path="res://Items/Graphics/Wall0000.png" type="Texture" id=1]
 [ext_resource path="res://Tiles/WallTile.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -11,7 +11,12 @@ collision_layer = 2147483649
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.668167, 3.56359 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="Wall" type="Sprite" parent="Sprite"]
 texture = ExtResource( 1 )
+offset = Vector2( 1.64972, 0.582016 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
