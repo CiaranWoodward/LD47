@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Level/Level.gd" type="Script" id=1]
+[ext_resource path="res://Level/MainCam.gd" type="Script" id=2]
 
 [node name="Level" type="YSort"]
 script = ExtResource( 1 )
+
+[node name="MainCam" type="Camera2D" parent="."]
+position = Vector2( 512.578, 303.008 )
+current = true
+smoothing_speed = 15.0
+script = ExtResource( 2 )
+MAX_SPEED = 1000.0
+ACCEL_TIME = 0.7
+STOP_TIME = 0.3
+
+[node name="Tween" type="Tween" parent="MainCam"]
+playback_process_mode = 0
