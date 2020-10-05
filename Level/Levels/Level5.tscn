@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Level/UI/Dialogue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Level/Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tiles/ConveyorIn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tiles/SpecificMachines/RoboPartMachine.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tiles/WallTile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Robo/Robo.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tiles/BlockTile.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Tiles/SpecificMachines/RoboMachine.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Tiles/ConveyorOut.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Tiles/MoveTile.tscn" type="PackedScene" id=10]
+
+[node name="Level5" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 1 )]
+visible = false
+speech = [ "Oh you're here to carry on the tour?", "I didn't think you'd be able to do that last one...", "I mean, I'm sure you're thoroughly enjoying the hands-on experience here today!", "Welcome to one our or more complex rooms!", "This one has slightly smarter worker robots.", "Very... very... very... slightly smarter...", "These ones are able to use block tiles which stop a robot from passing through if they are carrying a certain item.", "They can also be set to block a robot that is carrying nothing at all!", "This is great for getting single robots to do multiple jobs.", "They were made following the budget cuts...", "Those STINGY OFFICE PEOPLE making things more difficult!", "HOW DARE THEY think these IDIOTS can handle more than one task!", "But it is a mighty fine way to increase efficiency!", "So really, it was a blessing in disguise! Ha ha... ha...", "Anyways, this room also hasn't been finished...", "IS IT REALLY THAT HARD?!", "Since you did the last one so easily, you can surely help the smarter robots out too!", "There's only two of the \"smarter\" bots available at the moment...", "And we can't afford many more resources...", "But I'll give you what we've got!", "Now get those clever(ish) robot doing his jobs!", "The one already there needs to move copper plates to the robo part machine.", "He also needs to take the completed robo parts to the robo machine.", "The other one just needs to take the robo heads from the \"In\" conveyor to the robo machine.", "Robos that are made will walk straight out of the machine.", "Hopefully, you can make some more robots for the factory to use!" ]
+emotion = [ 2, 2, 0, 0, 2, 2, 2, 2, 2, 2, 1, 1, 0, 0, 2, 1, 2, 2, 2, 2, 0, 2, 2, 2, 2, 0 ]
+
+[node name="Level" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1.49921, 0 )
+
+[node name="WallTile" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 675, 450 )
+
+[node name="WallTile6" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 75, 675 )
+
+[node name="WallTile8" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 75, 300 )
+
+[node name="WallTile5" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 450, 600 )
+
+[node name="WallTile2" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 600, 375 )
+
+[node name="WallTile4" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 375, 300 )
+
+[node name="WallTile7" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 150, 75 )
+
+[node name="ConveyorIn" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 675, 525 )
+item_type = 4
+item_period = 15.0
+
+[node name="ConveyorIn2" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 300, 0 )
+item_type = 10
+
+[node name="MachineTile" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 150, 525 )
+direction = 1
+
+[node name="MachineTile2" parent="Level" instance=ExtResource( 8 )]
+position = Vector2( 300, 300 )
+direction = 3
+
+[node name="MoveTile" parent="Level" instance=ExtResource( 10 )]
+position = Vector2( 600, 525 )
+rotation = 4.71239
+direction = 3
+
+[node name="MoveTile8" parent="Level" instance=ExtResource( 10 )]
+position = Vector2( 375, 375 )
+rotation = 1.5708
+direction = 1
+
+[node name="MoveTile3" parent="Level" instance=ExtResource( 10 )]
+position = Vector2( 150, 300 )
+
+[node name="MoveTile6" parent="Level" instance=ExtResource( 10 )]
+position = Vector2( 525, 675 )
+rotation = 4.71239
+direction = 3
+
+[node name="ConveyorOut" parent="Level" instance=ExtResource( 9 )]
+position = Vector2( 150, 150 )
+
+[node name="BlockTile" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 525, 600 )
+
+[node name="BlockTile2" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 375, 525 )
+item_type = 11
+
+[node name="Robo" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 600, 525 )

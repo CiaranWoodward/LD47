@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Robo/Robo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tiles/SpecificMachines/WiresMachine.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tiles/WallTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tiles/ConveyorOut.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tiles/SpecificMachines/CopperPlateMachine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tiles/ConveyorIn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tiles/MoveTile.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Tiles/SpecificMachines/ArrowTileMachine.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Level/UI/Dialogue.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Level/Level.tscn" type="PackedScene" id=10]
+
+[node name="Level3" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 9 )]
+visible = false
+speech = [ "Now this room is a little more interesting.", "You can see the iron plates coming in on the top right there from the first room.", "The robots here are needing to make the arrow tiles that control their movement.", "Arrow tiles are one of the things we produce here that require more than one type of ingredient to make.", "There is another \"In\" conveyor that brings copper bars into the room.", "You can also see...", "A BRAIN-DEAD PIECE OF JUNK", "STARING AT A WALL", "But no problem, he just needs a gentle helping hand.", "Using the deconstruct button, you can also pick up robots to place down later.", "Remember, when you place him, you'll need to put him on an arrow tile.", "Otherwise, he'll just STAND THERE the lazy thing!", "Anyway... What was I saying...?", "Ah yes. The factory at the bottom turns the copper bars into copper plates.", "You have a whole bunch of arrow tiles to start putting down.", "Any items that go into the \"Out\" conveyor also appear in your build menu for you to use.", "Now see if you can direct that robot to make some copper plates!", "" ]
+emotion = [ 2, 2, 2, 2, 2, 2, 1, 1, 0, 2, 2, 1, 2, 2, 2, 2, 2, 2 ]
+
+[node name="Level" parent="." instance=ExtResource( 10 )]
+position = Vector2( -311.888, -81.9671 )
+
+[node name="ConveyorOut" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 0, 75 )
+
+[node name="WallTile" parent="Level" instance=ExtResource( 3 )]
+
+[node name="WallTile2" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 675, 0 )
+
+[node name="WallTile11" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 525, 225 )
+
+[node name="WallTile12" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 450, 525 )
+
+[node name="WallTile13" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 675, 450 )
+
+[node name="MoveTile" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 75, 75 )
+rotation = 1.5708
+direction = 1
+
+[node name="MoveTile2" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 375, 75 )
+rotation = 1.5708
+direction = 1
+
+[node name="MoveTile4" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 600, 75 )
+rotation = 4.71239
+direction = 3
+
+[node name="MoveTile13" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 300, 225 )
+
+[node name="MoveTile23" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 300, 150 )
+rotation = 3.14159
+direction = 2
+
+[node name="MoveTile22" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 300, 450 )
+rotation = 3.14159
+direction = 2
+
+[node name="MoveTile16" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 525, 675 )
+rotation = 4.71239
+direction = 3
+
+[node name="MoveTile19" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 525, 525 )
+
+[node name="MoveTile21" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 300, 525 )
+
+[node name="MachineTile" parent="Level" instance=ExtResource( 8 )]
+position = Vector2( 300, 75 )
+direction = 3
+
+[node name="ConveyorIn" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 675, 75 )
+item_type = 3
+item_period = 10.0
+
+[node name="ConveyorIn2" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 525, 300 )
+item_type = 8
+
+[node name="Robo" parent="Level" instance=ExtResource( 1 )]
+position = Vector2( 75, 75 )
+
+[node name="Robo4" parent="Level" instance=ExtResource( 1 )]
+position = Vector2( 600, 75 )
+
+[node name="Robo5" parent="Level" instance=ExtResource( 1 )]
+position = Vector2( 300, 150 )
+
+[node name="Robo6" parent="Level" instance=ExtResource( 1 )]
+position = Vector2( 300, 450 )
+
+[node name="Robo7" parent="Level" instance=ExtResource( 1 )]
+position = Vector2( 675, 675 )
+
+[node name="MachineTile3" parent="Level" instance=ExtResource( 2 )]
+position = Vector2( 300, 375 )
+
+[node name="MachineTile2" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 300, 675 )

@@ -138,14 +138,15 @@ __meta__ = {
 }
 
 [node name="Angry" type="TextureRect" parent="NinePatchRect/Artie"]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -40.0
-margin_right = 470.0
-margin_bottom = 510.0
+margin_left = -367.758
+margin_top = -142.349
+margin_right = 142.242
+margin_bottom = 367.651
 rect_rotation = 12.0733
 rect_scale = Vector2( 0.67585, 0.67585 )
+rect_pivot_offset = Vector2( 258.071, 230.338 )
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
@@ -153,14 +154,15 @@ __meta__ = {
 }
 
 [node name="Normal" type="TextureRect" parent="NinePatchRect/Artie"]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -40.0
-margin_right = 470.0
-margin_bottom = 510.0
+margin_left = -366.881
+margin_top = -142.914
+margin_right = 143.119
+margin_bottom = 367.086
 rect_rotation = 12.0733
 rect_scale = Vector2( 0.67585, 0.67585 )
+rect_pivot_offset = Vector2( 255.225, 228.98 )
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {

@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Level/UI/Dialogue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Level.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Robo/Robo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tiles/SpecificMachines/CogMachine.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tiles/ConveyorOut.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Tiles/SpecificMachines/ArrowTileMachine.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tiles/WallTile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Tiles/ConveyorIn.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Tiles/MoveTile.tscn" type="PackedScene" id=8]
 
 [node name="Level2" type="Node2D"]
 
@@ -15,75 +13,25 @@
 layer = 100
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 1 )]
-visible = false
+speech = [ "Welcome to the next stop on our tour!", "This is the room where we...", "Wait...", "WHERE ARE ALL THE WORKERS?!", "*sigh* It's okay, we can put some workers in from your build menu.", "You've got some arrow tiles there as well so you can direct them to where you want them to go.", "Try making one put plates into the cog making machine.", "The other can take the cogs from the machine output pile to the \"out\" conveyor.", "Robots will stop to pickup items from a machine deposit.", "If there is not an item there, they will walk over the tile.", "If they walk directly into a machine over a deposit tile, they will turn around.", "Have a go at generating some cogs!", "If you make a mistake, you can remove tiles you've placed using the \"Deconstruct\" option in the build menu!", "I'm so happy you're able to have lot's of fun in the factory with us!", "Some may call it free labour, but I call it a rare, first-hand experience!" ]
+emotion = [ 0, 2, 2, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0 ]
 
 [node name="Level" parent="." instance=ExtResource( 2 )]
-LEVEL_SIZE_X = 20
-LEVEL_SIZE_Y = 20
-
-[node name="ConveyorOut" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 75, 150 )
-
-[node name="WallTile" parent="Level" instance=ExtResource( 6 )]
-position = Vector2( 75, 75 )
-
-[node name="WallTile2" parent="Level" instance=ExtResource( 6 )]
-position = Vector2( 600, 75 )
-
-[node name="WallTile3" parent="Level" instance=ExtResource( 6 )]
-position = Vector2( 525, 300 )
-
-[node name="WallTile5" parent="Level" instance=ExtResource( 6 )]
-position = Vector2( 375, 375 )
-
-[node name="WallTile10" parent="Level" instance=ExtResource( 6 )]
-position = Vector2( 450, 375 )
-
-[node name="WallTile4" parent="Level" instance=ExtResource( 6 )]
-position = Vector2( 75, 300 )
-
-[node name="WallTile6" parent="Level" instance=ExtResource( 6 )]
-position = Vector2( 150, 75 )
-
-[node name="MoveTile" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 150, 150 )
-rotation = 1.5708
-direction = 1
-
-[node name="MoveTile2" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 525, 150 )
-rotation = 3.14159
-direction = 2
-
-[node name="MoveTile3" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 375, 225 )
-rotation = 3.14159
-direction = 2
-
-[node name="MoveTile4" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 525, 225 )
-rotation = 4.71239
-direction = 3
-
-[node name="MoveTile6" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 375, 300 )
-rotation = 4.71239
-direction = 3
-
-[node name="MoveTile5" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 150, 300 )
-
-[node name="MoveTile7" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 300, 300 )
-rotation = 3.14159
-direction = 2
-
-[node name="MachineTile" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 300, 225 )
+LEVEL_SIZE_Y = 7
 
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 7 )]
-position = Vector2( 600, 150 )
+position = Vector2( 600, 75 )
 item_type = 3
 
-[node name="Robo" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 150, 150 )
+[node name="WallTile" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 600, 0 )
+
+[node name="WallTile2" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 225, 300 )
+
+[node name="MachineTile" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 600, 375 )
+direction = 3
+
+[node name="ConveyorOut" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 225, 375 )

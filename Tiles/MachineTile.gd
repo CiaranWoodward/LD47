@@ -29,6 +29,7 @@ func _ready():
 	get_parent().call_deferred("set_tile", tc + dirvec, dropTile)
 	dropTile.connect("item_taken", self, "_item_taken")
 	dropTile.connect("zone_cleared", self, "_zone_cleared")
+	_set_building(false)
 
 func _exit_tree():
 	if Engine.editor_hint:

@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Level/UI/Dialogue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Level/Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Robo/Robo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tiles/MoveTile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tiles/ConveyorIn.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tiles/SpecificMachines/RoboHeadMachine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Tiles/SpecificMachines/RoboPartMachine.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Tiles/WallTile.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Tiles/ConveyorOut.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Tiles/SpecificMachines/WiresMachine.tscn" type="PackedScene" id=11]
+
+[node name="Level4" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 1 )]
+visible = false
+speech = [ "Oooooh look! A machine that needs three different ingredients!", "That one needs a circuitboard, wires and a robo part to make a robo head.", "Oh yes, I'm sure you knew already, but we make robots at this factory!", "Only worker bots though...", "Not the pretty ones like me!", "It seems like our factory builder has messed up massively with this one...", "They haven't even bothered to make a path to get wires into the machine that makes robo heads...", "They also haven't connected the machine deposit to the \"Out\" conveyor...", "Head office keeps going on at me for having low productivity and no wonder why when half our factory is incomplete!", "It's not my fault!", "It's those INCOMPETENT FACTORY BUILDERS!", "AND JUST LOOK AT THOSE BOTS STUCK WALKING INTO EACH OTHER!", "AND THEY KEEP BLAMING ME?!", "Oh! Sorry, I forgot myself for a moment.", "Arthur Fisher Intelligence is a great organisation as you must know from our stellar reputation!", "Anyhow, while you're here, you may as well use those spare tiles and walls...", "It's all part of the factory tour that's all!" ]
+emotion = [ 0, 2, 2, 2, 0, 2, 2, 2, 2, 2, 1, 1, 1, 2, 0, 2, 0 ]
+
+[node name="Level" parent="." instance=ExtResource( 2 )]
+position = Vector2( 36.7531, -7.49152 )
+LEVEL_SIZE_X = 14
+LEVEL_SIZE_Y = 14
+
+[node name="MachineTile" parent="Level" instance=ExtResource( 8 )]
+position = Vector2( 525, 150 )
+direction = 3
+
+[node name="ConveyorIn" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 675, 75 )
+item_type = 4
+item_period = 2.0
+
+[node name="MoveTile" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 675, 150 )
+rotation = 4.71239
+direction = 3
+
+[node name="MoveTile2" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 600, 150 )
+rotation = 3.14159
+direction = 2
+
+[node name="MoveTile9" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 300, 0 )
+rotation = 3.14159
+direction = 2
+
+[node name="MoveTile7" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 225, 75 )
+
+[node name="MoveTile12" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 300, 300 )
+rotation = 3.14159
+direction = 2
+
+[node name="MoveTile3" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 600, 225 )
+rotation = 1.5708
+direction = 1
+
+[node name="MoveTile10" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 225, 0 )
+rotation = 1.5708
+direction = 1
+
+[node name="MoveTile11" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 375, 150 )
+rotation = 1.5708
+direction = 1
+
+[node name="MoveTile8" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 300, 75 )
+rotation = 4.71239
+direction = 3
+
+[node name="MoveTile4" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 675, 225 )
+
+[node name="WallTile5" parent="Level" instance=ExtResource( 9 )]
+position = Vector2( 675, 0 )
+
+[node name="WallTile2" parent="Level" instance=ExtResource( 9 )]
+position = Vector2( 750, 225 )
+
+[node name="WallTile6" parent="Level" instance=ExtResource( 9 )]
+position = Vector2( 375, 0 )
+
+[node name="WallTile7" parent="Level" instance=ExtResource( 9 )]
+position = Vector2( 150, 0 )
+
+[node name="WallTile8" parent="Level" instance=ExtResource( 9 )]
+position = Vector2( 0, 300 )
+
+[node name="Robo" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 675, 150 )
+
+[node name="Robo5" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 600, 150 )
+
+[node name="Robo4" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 675, 225 )
+
+[node name="Robo3" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 600, 225 )
+
+[node name="Robo2" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 300, 0 )
+
+[node name="MachineTile2" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 300, 150 )
+direction = 2
+
+[node name="ConveyorOut" parent="Level" instance=ExtResource( 10 )]
+position = Vector2( 0, 375 )
+
+[node name="ConveyorIn2" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 150, 75 )
+item_type = 6
+item_period = 15.0
+
+[node name="MachineTile3" parent="Level" instance=ExtResource( 11 )]
+position = Vector2( 600, 300 )
+direction = 2
