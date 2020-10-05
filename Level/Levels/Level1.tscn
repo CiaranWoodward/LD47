@@ -16,27 +16,26 @@ layer = 100
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 2 )]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 margin_top = 0.0
 margin_bottom = 0.0
 speech = [ "Hello and congrats for winning a private tour of the main factory of Arthur Fisher Intelligence!
-", "You are so lucky to be here meeting me!", "I am the one and only Arthur Fisher, but you may call me Artie for short.", "There are many rooms in our complex here at AFI, this is one of the smaller factories.", ". . . 
-Don’t mind him…", "STUPID THING", "The worker robots aren’t the smartest beings, bless them…", "It seems that he’s stuck in a loop...", "I know!", "While you’re here, why don’t you learn how the factory works and you can help him out!", "I’ll show you what the different parts of the factory do.", "For your own interest of course...", "Doesn't that sound fun!" ]
-emotion = [ 0, 2, 2, 2, 2, 1, 0, 2, 2, 0, 2, 2, 0 ]
+", "You are so lucky to be here meeting me!", "I am the one and only Arthur Fisher, but you may call me Artie for short.", "There are many rooms in our complex here at AFI, this is one of the smaller factories.", ". . . ", "Don’t mind him…", "STUPID THING", "The worker robots aren’t the smartest beings, bless them…", "It seems that he’s stuck in a loop...", "I know!", "While you’re here, why don’t you learn how the factory works and you can help him out!", "I’ll show you what the different parts of the factory do.", "For your own interest of course...", "Doesn't that sound fun!", "On the right, you can pick up a wall to stop him going round and round and round...", "BRAINLESS BOT!", "*ahem* I mean...", "What a little cutie!", "Anyway, if you pick up that wall and place it in a clever place, he might stop going in circles.", "Robos will walk over an arrow tile without chaging direction if they don't hit a wall.", "See that arrow on the right wall that's pointing left?", "Seems like SOME IDIOT has removed the wall block that's supposed to be on the tile above it.", "Be a darling and pop it there would you?", "Now, he can break free!", "He'll pick up the iron bar and put it in that factory there.", "When the factory has two iron bars, it'll make a plate.", "Then, our little friend there who has been walking back and forth can pick it up!", "The \"out\" conveyor will take the plate to the right place in the factory for us.", "See! It's super fun! What a great prize you won!", "When, you're ready, you can click the button there that says \"Next\" and we can continue with our tour!" ]
+emotion = [ 0, 2, 2, 2, 2, 1, 0, 2, 2, 0, 2, 2, 2, 0, 2, 1, 2, 0, 2, 2, 2, 1, 0, 2, 2, 2, 2, 2, 0, 2 ]
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
+LEVEL_SIZE_Y = 8
 
 [node name="Robo" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 675, 675 )
+position = Vector2( 675, 525 )
 
 [node name="Robo2" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 300, 150 )
 
 [node name="MoveTile" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 675, 675 )
+position = Vector2( 675, 525 )
 
 [node name="MoveTile3" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 675, 450 )
+position = Vector2( 675, 375 )
 rotation = 4.71239
 direction = 3
 
@@ -45,7 +44,7 @@ rotation = 3.14159
 direction = 2
 
 [node name="MoveTile6" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 525, 450 )
+position = Vector2( 525, 375 )
 
 [node name="MoveTile7" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 525, 225 )
@@ -68,12 +67,12 @@ rotation = 1.5708
 direction = 1
 
 [node name="MoveTile4" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 0, 675 )
+position = Vector2( 0, 525 )
 rotation = 1.5708
 direction = 1
 
 [node name="MoveTile8" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 150, 675 )
+position = Vector2( 150, 525 )
 rotation = 1.5708
 direction = 1
 
@@ -84,10 +83,10 @@ position = Vector2( 75, 225 )
 position = Vector2( 225, 75 )
 
 [node name="WallTile2" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 450, 375 )
+position = Vector2( 375, 300 )
 
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 450, 450 )
+position = Vector2( 375, 375 )
 item_type = 1
 
 [node name="MachineTile" parent="Level" instance=ExtResource( 6 )]

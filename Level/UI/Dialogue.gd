@@ -65,7 +65,8 @@ func _advance_text():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Fade.play("FadeIn")
+	if !Engine.editor_hint:
+		$Fade.play("FadeIn")
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_select"):
@@ -74,7 +75,6 @@ func _process(delta):
 func _on_Fade_animation_finished(anim_name):
 	if anim_name == "FadeIn":
 		_set_text(0)
-
 
 func _on_Dialogue_gui_input(event):
 	if event is InputEventMouseButton and (event.button_index == BUTTON_LEFT):
