@@ -20,7 +20,7 @@ func _send_item(item, itemnum):
 	$Fader.remove_all()
 	$Fader.interpolate_property(cur_itemvis, "modulate", cur_itemvis.modulate, Color(1, 1, 1, 0), REMOVE_TIME, Tween.TRANS_SINE, Tween.EASE_IN)
 	$Fader.start()
-	$AnimationPlayer.play("Out")
+	$AnimationPlayerOut.play("Out")
 
 func GiveItem(item : int):
 	if item == Global.ItemType.NONE:
