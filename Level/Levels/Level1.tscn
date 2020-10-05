@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/UI/Dialogue.tscn" type="PackedScene" id=2]
@@ -8,8 +8,10 @@
 [ext_resource path="res://Tiles/SpecificMachines/IronPlateMachine.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Tiles/ConveyorOut.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Tiles/WallTile.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Level/Levels/Level1.gd" type="Script" id=9]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource( 9 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 100
@@ -50,6 +52,11 @@ position = Vector2( 525, 225 )
 rotation = 4.71239
 direction = 3
 
+[node name="MoveTile12" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 375, 150 )
+rotation = 4.71239
+direction = 3
+
 [node name="MoveTile10" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 150, 225 )
 rotation = 3.14159
@@ -82,10 +89,10 @@ position = Vector2( 75, 225 )
 position = Vector2( 225, 75 )
 
 [node name="WallTile2" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 375, 300 )
+position = Vector2( 450, 300 )
 
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 375, 375 )
+position = Vector2( 450, 375 )
 item_type = 1
 
 [node name="MachineTile" parent="Level" instance=ExtResource( 6 )]

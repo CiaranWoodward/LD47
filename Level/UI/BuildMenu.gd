@@ -8,7 +8,7 @@ var buildable = {
 	Global.ItemType.ARROW_PLATE : preload("res://Tiles/MoveTile.tscn"),
 	Global.ItemType.ROBO : preload("res://Robo/Robo.tscn"),
 	Global.ItemType.STORAGE_BOX : preload("res://Tiles/StorageBox.tscn"),
-	Global.ItemType.WALLS : preload("res://Items/Wall.tscn"),
+	Global.ItemType.WALLS : preload("res://Tiles/WallTile.tscn"),
 	Global.ItemType.BLOCK_TILE : preload("res://Tiles/BlockTile.tscn"),
 	Global.ItemType.MACHINE : preload("res://Tiles/MachineTile.tscn"),
 }
