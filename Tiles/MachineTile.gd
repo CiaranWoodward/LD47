@@ -41,6 +41,7 @@ func _checkComplete():
 			inventory[i] = false
 		isReady = false
 		get_node("WorkingTimer").start(work_time);
+		_set_building(true)
 
 func _item_taken():
 	isReady = true
@@ -58,6 +59,18 @@ func _release_item():
 func _zone_cleared():
 	if pendingRelease:
 		_release_item()
+
+func _set_building(isbuilding : bool):
+	if isbuilding:
+		$TopRight.play("Building")
+		$TopLeft.play("Building")
+		$"Sprite/Slots/FrontLeft/FrontLeft".play("Building")
+		$"Sprite/Slots/FrontRight/FrontRight".play("Building")
+	else:
+		$TopRight.play("Idle")
+		$TopLeft.play("Idle")
+		$"Sprite/Slots/FrontLeft/FrontLeft".stop()
+		$"Sprite/Slots/FrontRight/FrontRight".stop()
 
 func IsStopper(_itemtype):
 	return true
@@ -79,6 +92,7 @@ func GiveItem(item : int):
 	return retval
 
 func _on_WorkingTimer_timeout():
+	_set_building(false)
 	if dropTile.IsClear():
 		_release_item()
 	else:
