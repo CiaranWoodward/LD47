@@ -26,8 +26,9 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 24
+outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_char = -1
+extra_spacing_char = 1
 font_data = ExtResource( 1 )
 
 [resource]
@@ -58,6 +59,7 @@ MarginContainer/constants/margin_right = 0
 MarginContainer/constants/margin_top = 0
 Panel/styles/panel = SubResource( 4 )
 PanelContainer/styles/panel = SubResource( 5 )
+ScrollContainer/styles/bg = null
 Tabs/colors/font_color_bg = Color( 0.69, 0.69, 0.69, 1 )
 Tabs/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Tabs/colors/font_color_fg = Color( 0.94, 0.94, 0.94, 1 )
