@@ -24,6 +24,13 @@ config/icon="res://icon.png"
 Global="*res://Global.gd"
 BaseTile="res://Tiles/BaseTile.gd"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
 [input]
 
 ui_left={

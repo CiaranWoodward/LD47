@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 20 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 resource_name = "In"
 length = 0.4
 tracks/0/type = "value"
@@ -79,7 +79,6 @@ texture = ExtResource( 5 )
 texture = ExtResource( 3 )
 
 [node name="Belt" type="Sprite" parent="Sprite"]
-position = Vector2( 0, 0.402685 )
 texture = ExtResource( 2 )
 
 [node name="HoodShadow" type="Sprite" parent="Sprite"]
@@ -89,13 +88,15 @@ texture = ExtResource( 1 )
 texture = ExtResource( 4 )
 
 [node name="ItemPoint" type="Position2D" parent="."]
-modulate = Color( 1, 1, 1, 0.176471 )
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, -32.4059 )
 z_index = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Belt = SubResource( 2 )
-anims/In = SubResource( 3 )
+
+[node name="AnimationPlayerIn" type="AnimationPlayer" parent="."]
+anims/In = SubResource( 5 )
 
 [node name="ItemTimer" type="Timer" parent="."]
 wait_time = 5.0
