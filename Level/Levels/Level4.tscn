@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Level/UI/Dialogue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level/Levels/Level4.gd" type="Script" id=3]
 [ext_resource path="res://Robo/Robo.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tiles/MoveTile.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tiles/ConveyorIn.tscn" type="PackedScene" id=6]
@@ -12,6 +13,7 @@
 [ext_resource path="res://Tiles/SpecificMachines/WiresMachine.tscn" type="PackedScene" id=11]
 
 [node name="Level4" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
