@@ -14,7 +14,7 @@
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
 LEVEL_SIZE_X = 13
-LEVEL_SIZE_Y = 11
+LEVEL_SIZE_Y = 12
 
 [node name="Robo" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 600, 525 )
@@ -27,6 +27,9 @@ position = Vector2( 600, 375 )
 
 [node name="Robo4" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 225, 300 )
+
+[node name="Robo5" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 225, 525 )
 
 [node name="MoveTile" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 600, 525 )
@@ -98,6 +101,39 @@ position = Vector2( 375, 375 )
 rotation = 1.5708
 direction = 1
 
+[node name="MoveTile19" parent="Level" instance=ExtResource( 2 )]
+position = Vector2( 225, 525 )
+rotation = 1.5708
+direction = 1
+
+[node name="MoveTile20" parent="Level" instance=ExtResource( 2 )]
+position = Vector2( 300, 525 )
+rotation = 4.71239
+direction = 3
+
+[node name="MoveTile21" parent="Level" instance=ExtResource( 2 )]
+position = Vector2( 150, 675 )
+rotation = 1.5708
+direction = 1
+
+[node name="MoveTile22" parent="Level" instance=ExtResource( 2 )]
+position = Vector2( 225, 675 )
+rotation = 1.5708
+direction = 1
+
+[node name="MoveTile24" parent="Level" instance=ExtResource( 2 )]
+position = Vector2( 675, 675 )
+rotation = 3.14159
+direction = 2
+
+[node name="MoveTile25" parent="Level" instance=ExtResource( 2 )]
+position = Vector2( 675, 750 )
+rotation = 4.71239
+direction = 3
+
+[node name="MoveTile23" parent="Level" instance=ExtResource( 2 )]
+position = Vector2( 225, 750 )
+
 [node name="MoveTile17" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 375, 225 )
 rotation = 3.14159
@@ -120,14 +156,29 @@ required_items = [ 2 ]
 item_out = 3
 direction = 3
 
+[node name="MachineTile3" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 150, 525 )
+required_items = [ 2, 2 ]
+item_out = 4
+direction = 2
+
 [node name="WallTile" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 600, 450 )
 
 [node name="WallTile2" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 525, 600 )
 
+[node name="WallTile17" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 150, 750 )
+
+[node name="WallTile18" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 225, 600 )
+
 [node name="WallTile3" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 750, 675 )
+
+[node name="WallTile19" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 675, 825 )
 
 [node name="WallTile4" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 675, 75 )
@@ -171,6 +222,11 @@ position = Vector2( 825, 450 )
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 825, 525 )
 item_type = 1
+
+[node name="ConveyorIn2" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 375, 525 )
+item_type = 2
+item_period = 2.0
 
 [node name="StorageBox" parent="Level" instance=ExtResource( 7 )]
 position = Vector2( 300, 300 )

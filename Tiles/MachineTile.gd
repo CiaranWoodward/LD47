@@ -63,4 +63,10 @@ func GiveItem(item : int):
 	return retval
 
 func _on_WorkingTimer_timeout():
-	dropTile._GiveItem(item_out)
+	if item_out == Global.ItemType.ROBO:
+		var newRobo = preload("res://Robo/Robo.tscn").instance()
+		newRobo.position = dropTile.position
+		get_parent().add_child(newRobo)
+		isReady = true
+	else:
+		dropTile._GiveItem(item_out)
