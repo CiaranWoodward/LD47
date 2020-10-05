@@ -89,8 +89,8 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-speech = [ "Hello, i'm happy. lalalala lala lalala lalala lalal lalalal lalala lalala laaaa lalalalal lalala haheheee", "Now I'm angry. rashasldufjljdsflkjasdfkl  sdjfhksad fkjsdhfk sjdaf" ]
-emotion = [ 0, 1 ]
+speech = [ "" ]
+emotion = [ 0 ]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 self_modulate = Color( 1, 1, 1, 0.580392 )
@@ -121,7 +121,6 @@ __meta__ = {
 }
 
 [node name="Happy" type="TextureRect" parent="NinePatchRect/Artie"]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -40.0
@@ -173,8 +172,8 @@ margin_top = 22.0562
 margin_right = -260.056
 margin_bottom = -22.9438
 mouse_filter = 1
-visible_characters = 0
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+visible_characters = 500
+text = "Hello, i'm happy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
