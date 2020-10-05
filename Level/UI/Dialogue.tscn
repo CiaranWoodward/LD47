@@ -1,18 +1,96 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Graphics/UI/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Story/Graphics/Artie/Angry0000.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/UI/DialogueBox0000.png" type="Texture" id=3]
 [ext_resource path="res://Story/Graphics/Artie/Normal0000.png" type="Texture" id=4]
 [ext_resource path="res://Story/Graphics/Artie/Happy0000.png" type="Texture" id=5]
+[ext_resource path="res://Level/UI/Dialogue.gd" type="Script" id=6]
 
-[node name="Control" type="Control"]
+[sub_resource type="Animation" id=1]
+resource_name = "Speak"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 500 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Dialogue" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.41425
+margin_bottom = -1.41425
 theme = ExtResource( 1 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+speech = [ "Hello, i'm happy. lalalala lala lalala lalala lalal lalalal lalala lalala laaaa lalalalal lalala haheheee", "Now I'm angry. rashasldufjljdsflkjasdfkl  sdjfhksad fkjsdhfk sjdaf" ]
+emotion = [ 0, 1 ]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 self_modulate = Color( 1, 1, 1, 0.580392 )
@@ -37,11 +115,13 @@ margin_left = 875.05
 margin_top = -114.221
 margin_right = 915.05
 margin_bottom = -74.2207
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Happy" type="TextureRect" parent="NinePatchRect/Artie"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -40.0
@@ -56,6 +136,7 @@ __meta__ = {
 }
 
 [node name="Angry" type="TextureRect" parent="NinePatchRect/Artie"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -40.0
@@ -70,6 +151,7 @@ __meta__ = {
 }
 
 [node name="Normal" type="TextureRect" parent="NinePatchRect/Artie"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -40.0
@@ -83,14 +165,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="NinePatchRect"]
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 23.9439
 margin_top = 22.0562
 margin_right = -260.056
 margin_bottom = -22.9438
-text = "Hey"
+mouse_filter = 1
+visible_characters = 0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Animate" type="AnimationPlayer" parent="NinePatchRect/Text"]
+anims/Speak = SubResource( 1 )
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
+[connection signal="gui_input" from="." to="." method="_on_Dialogue_gui_input"]
+[connection signal="animation_finished" from="Fade" to="." method="_on_Fade_animation_finished"]
