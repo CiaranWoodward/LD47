@@ -21,9 +21,12 @@ var cur_speed : float = 0
 
 var cur_item = Global.ItemType.NONE
 var cur_itemvis
+var offloading = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if offloading:
+		return
 	SnapToGrid()
 	_set_collision()
 
@@ -125,6 +128,11 @@ func _handle_collision(kc : KinematicCollision2D):
 				$"Robo/ItemPoint".add_child(cur_itemvis)
 			shouldStop = true
 			_handle_armsup(true)
+	elif !_hasItem() && target.has_method("GiveSelf") && cur_state == State.MOVING:
+		if target.GiveSelf(cur_direction, self):
+			# Bai world
+			offloading = true
+			return
 	if target.has_method("IsStopper"):
 		if target.IsStopper(cur_item):
 			shouldStop = true
@@ -146,7 +154,7 @@ func _process(_delta):
 		SnapToGrid()
 
 func _physics_process(delta):
-	if Engine.editor_hint:
+	if Engine.editor_hint || offloading:
 		return
 	match cur_state:
 		State.STOPPED:
