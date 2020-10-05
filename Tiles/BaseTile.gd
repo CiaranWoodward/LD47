@@ -1,6 +1,9 @@
 tool
 extends StaticBody2D
 
+var player_built : bool = false
+var item_id : int = Global.ItemType.NONE
+
 # Called when the node enters the scene tree
 func _ready():
 	if get_parent().has_method("reg_tile"):

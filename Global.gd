@@ -40,7 +40,7 @@ func instance_item(itemnum : int):
 		ItemType.WALLS:
 			return preload("res://Items/Wall.tscn").instance()
 		ItemType.ROBO:
-			return preload("res://Items/RoboHead.tscn").instance()
+			return preload("res://Items/Robo.tscn").instance()
 
 func get_icon_texture(itemnum : int):
 	match itemnum:
