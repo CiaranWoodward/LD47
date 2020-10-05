@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Level/UI/BuildBlock.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/UI/BuildFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Graphics/UI/Icon.tscn" type="PackedScene" id=3]
+
+[node name="BuildBlock" type="PanelContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 476.0
+margin_bottom = 245.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 449.0
+margin_bottom = 342.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 427.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 412.0
+margin_bottom = 30.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 123.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 100, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 2 )
+text = "Blocking Tile"
+valign = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 127.0
+margin_right = 308.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 312.0
+margin_right = 412.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 100, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.682353, 0.682353, 0.682353, 1 )
+text = "Count: 37"
+align = 2
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 412.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 162.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="Icon" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 166.0
+margin_right = 241.0
+item_type = 7
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 245.0
+margin_right = 245.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 249.0
+margin_right = 412.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 113.0
+margin_right = 412.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 100, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.682353, 0.682353, 0.682353, 1 )
+text = "Blocks passage of:"
+valign = 1
+
+[node name="IconContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 147.0
+margin_right = 412.0
+margin_bottom = 305.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
