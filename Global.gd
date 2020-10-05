@@ -2,12 +2,15 @@ tool
 extends Node
 
 signal deconstruct_mode_changed(enabled)
+signal itemcounts_changed
 
 enum ItemType {NONE,BAR,COG,PLATE,COPPER_PLATE,ARROW_PLATE,CIRCUITBOARD,BLOCK_TILE,COPPER_BAR,MACHINE,ROBO_HEAD,ROBO_PART,WALLS,WIRES,STORAGE_BOX,ROBO}
 enum Dir {UP, RIGHT, DOWN, LEFT}
 enum TransitionType {LINEAR = 0,SINE = 1,QUINT = 2,QUART = 3,QUAD = 4,EXPO = 5,ELASTIC = 6,CUBIC = 7,CIRC = 8,BOUNCE = 9,BACK = 10}
 enum EaseType {IN = 0,OUT=1,IN_OUT=2,OUT_IN=3}
 enum PhyLayer {ROBO = 1, FULL_ROBO = 2, EMPTY_ROBO = 4, SPECIAL_TILE = 8}
+
+var item_counts = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -90,7 +93,27 @@ func get_dir_vec(dir : int):
 	return dir_vec
 
 func deposit_item(itemnum : int):
-	pass
+	if item_counts.has(itemnum):
+		item_counts[itemnum] += 1
+	else:
+		item_counts[itemnum] = 1
+	emit_signal("itemcounts_changed")
+	
+func take_item(itemnum : int):
+	if item_counts.has(itemnum) && item_counts[itemnum] > 0:
+		item_counts[itemnum] -= 1
+		return true
+		emit_signal("itemcounts_changed")
+	return false
+
+func get_itemcount(itemnum : int):
+	if item_counts.has(itemnum):
+		return item_counts[itemnum]
+	return 0
+
+func clear_items():
+	item_counts = {}
+	emit_signal("itemcounts_changed")
 
 func set_deconstruct_mode(enabled):
 	emit_signal("deconstruct_mode_changed", enabled)

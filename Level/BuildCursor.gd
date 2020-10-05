@@ -66,16 +66,17 @@ func _unhandled_input(event):
 		if event.is_pressed():
 			instance.position = position
 			get_parent().add_child(instance)
-			Set(null)
+			Set(null, false)
 	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT:
 		if event.is_pressed():
-			Global.deposit_item(item)
 			Set(null)
 	if event.is_action_released("rotate"):
 		_rotate()
 
-func Set(iteminstance):
+func Set(iteminstance, deposit = true):
 	if !is_instance_valid(iteminstance):
+		if deposit:
+			Global.deposit_item(item)
 		_set_item(Global.ItemType.NONE)
 	_set_item(iteminstance.item_id)
 	instance = iteminstance
