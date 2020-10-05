@@ -2,6 +2,7 @@ tool
 extends BaseTile
 
 signal item_taken
+signal zone_cleared
 
 onready var animtree = get_node("AnimationTree")
 onready var animsm : AnimationNodeStateMachinePlayback = animtree["parameters/playback"]
@@ -9,6 +10,8 @@ onready var animsm : AnimationNodeStateMachinePlayback = animtree["parameters/pl
 var direction = Global.Dir.UP
 var cur_item = Global.ItemType.NONE
 var cur_itemvis
+
+var trespass_count : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,3 +63,15 @@ func TakeItem():
 
 func IsStopper(_itemtype):
 	return HasItem()
+
+func IsClear():
+	return trespass_count == 0
+
+func _on_DropArea_body_entered(body):
+	trespass_count += 1
+
+func _on_DropArea_body_exited(body):
+	trespass_count -= 1
+	assert(trespass_count >= 0)
+	if trespass_count == 0:
+		emit_signal("zone_cleared")

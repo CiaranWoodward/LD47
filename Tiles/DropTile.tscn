@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Tiles/Graphics/drop.png" type="Texture" id=1]
 [ext_resource path="res://Tiles/DropTile.gd" type="Script" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Tiles/Graphics/MachineDumpTile/Tile0000.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 34.4861, 34.366 )
+extents = Vector2( 26.7081, 26.9414 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Off"
@@ -176,57 +176,60 @@ animation = "Off"
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "On"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "TurnOff"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
-animation = "TurnOn"
-
 [sub_resource type="AnimationNodeAnimation" id=8]
 animation = "TurnOff"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "TurnOn"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=10]
-switch_mode = 2
-auto_advance = true
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "TurnOff"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=11]
-switch_mode = 2
-auto_advance = true
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "TurnOn"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=12]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=18]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=19]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
-switch_mode = 2
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachine" id=14]
+[sub_resource type="AnimationNodeStateMachine" id=19]
 states/Off/node = SubResource( 6 )
 states/Off/position = Vector2( 424, 36 )
 states/On/node = SubResource( 7 )
 states/On/position = Vector2( 649, 149 )
-states/PulseOff/node = SubResource( 16 )
+states/PulseOff/node = SubResource( 8 )
 states/PulseOff/position = Vector2( 410, -69 )
-states/PulseOn/node = SubResource( 17 )
+states/PulseOn/node = SubResource( 9 )
 states/PulseOn/position = Vector2( 245, -28 )
-states/TurnOff/node = SubResource( 8 )
+states/TurnOff/node = SubResource( 10 )
 states/TurnOff/position = Vector2( 424, 149 )
-states/TurnOn/node = SubResource( 9 )
+states/TurnOn/node = SubResource( 11 )
 states/TurnOn/position = Vector2( 649, 36 )
-transitions = [ "TurnOn", "On", SubResource( 10 ), "TurnOff", "Off", SubResource( 11 ), "Off", "TurnOn", SubResource( 12 ), "On", "TurnOff", SubResource( 13 ), "PulseOn", "PulseOff", SubResource( 18 ), "Off", "PulseOn", SubResource( 19 ), "PulseOff", "Off", SubResource( 20 ) ]
+transitions = [ "TurnOn", "On", SubResource( 12 ), "TurnOff", "Off", SubResource( 13 ), "Off", "TurnOn", SubResource( 14 ), "On", "TurnOff", SubResource( 15 ), "PulseOn", "PulseOff", SubResource( 16 ), "Off", "PulseOn", SubResource( 17 ), "PulseOff", "Off", SubResource( 18 ) ]
 graph_offset = Vector2( 65, -38 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=15]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=20]
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 33.4256, 33.6589 )
 
 [node name="DropTile" type="StaticBody2D"]
 collision_layer = 0
@@ -259,7 +262,15 @@ anims/TurnOff = SubResource( 4 )
 anims/TurnOn = SubResource( 5 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 14 )
+tree_root = SubResource( 19 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 15 )
+parameters/playback = SubResource( 20 )
+
+[node name="DropArea" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea"]
+shape = SubResource( 21 )
+[connection signal="body_entered" from="DropArea" to="." method="_on_DropArea_body_entered"]

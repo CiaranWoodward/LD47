@@ -11,6 +11,7 @@ export(Global.Dir) var direction = Global.Dir.UP
 # index-matched with required_items (basically, is it present?)
 var inventory = []
 var isReady = true
+var pendingRelease = false
 var dropTile
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +26,7 @@ func _ready():
 	dropTile.direction = direction
 	get_parent().call_deferred("set_tile", tc + dirvec, dropTile)
 	dropTile.connect("item_taken", self, "_item_taken")
+	dropTile.connect("zone_cleared", self, "_zone_cleared")
 
 func _checkComplete():
 	var complete = true
@@ -42,6 +44,20 @@ func _checkComplete():
 
 func _item_taken():
 	isReady = true
+
+func _release_item():
+	pendingRelease = false
+	if item_out == Global.ItemType.ROBO:
+		var newRobo = preload("res://Robo/Robo.tscn").instance()
+		newRobo.position = dropTile.position
+		get_parent().add_child(newRobo)
+		isReady = true
+	else:
+		dropTile._GiveItem(item_out)
+	
+func _zone_cleared():
+	if pendingRelease:
+		_release_item()
 
 func IsStopper(_itemtype):
 	return true
@@ -63,10 +79,7 @@ func GiveItem(item : int):
 	return retval
 
 func _on_WorkingTimer_timeout():
-	if item_out == Global.ItemType.ROBO:
-		var newRobo = preload("res://Robo/Robo.tscn").instance()
-		newRobo.position = dropTile.position
-		get_parent().add_child(newRobo)
-		isReady = true
+	if dropTile.IsClear():
+		_release_item()
 	else:
-		dropTile._GiveItem(item_out)
+		pendingRelease = true
