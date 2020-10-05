@@ -39,7 +39,7 @@ func tile_to_world_coords(tc : Vector2):
 	return retval
 
 func is_tc_on_map(tc : Vector2):
-	if tc.x > 0 && tc.y > 0 && tc.x < LEVEL_SIZE_X && tc.y < LEVEL_SIZE_Y:
+	if tc.x >= 0 && tc.y >= 0 && tc.x < LEVEL_SIZE_X && tc.y < LEVEL_SIZE_Y:
 		return true
 	return false
 
