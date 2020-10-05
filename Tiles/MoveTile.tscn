@@ -5,11 +5,10 @@
 [ext_resource path="res://Tiles/Graphics/ArrowTile/Arrows0000.png" type="Texture" id=3]
 [ext_resource path="res://Tiles/Graphics/ArrowTile/Tile0000.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33.0468, 33.2597 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Off"
+[sub_resource type="Animation" id=2]
 length = 0.001
 loop = true
 tracks/0/type = "value"
@@ -37,8 +36,7 @@ tracks/1/keys = {
 "values": [ Color( 0.196078, 0.454902, 0.211765, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "On"
+[sub_resource type="Animation" id=3]
 length = 3.0
 step = 0.05
 tracks/0/type = "value"
@@ -66,8 +64,7 @@ tracks/1/keys = {
 "values": [ Color( 0.196078, 1, 0.211765, 0.741176 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "TurnOff"
+[sub_resource type="Animation" id=4]
 length = 0.8
 step = 0.05
 tracks/0/type = "value"
@@ -95,8 +92,7 @@ tracks/1/keys = {
 "values": [ Color( 0.196078, 1, 0.211765, 0.741176 ), Color( 0.133333, 0.298039, 0.145098, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "TurnOn"
+[sub_resource type="Animation" id=5]
 length = 0.4
 step = 0.05
 tracks/0/type = "value"
@@ -124,26 +120,22 @@ tracks/1/keys = {
 "values": [ Color( 0.196078, 0.454902, 0.211765, 0 ), Color( 0.133333, 0.298039, 0.145098, 0 ), Color( 0.196078, 1, 0.211765, 0.741176 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=5]
-animation = "Off"
-
 [sub_resource type="AnimationNodeAnimation" id=6]
-animation = "On"
+animation = "Off"
 
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "On"
 
 [sub_resource type="AnimationNodeAnimation" id=8]
-animation = "TurnOff"
+animation = "On"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
+animation = "TurnOff"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "TurnOn"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=10]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=11]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=12]
 switch_mode = 2
@@ -151,33 +143,37 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=14]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=15]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
 switch_mode = 1
 
-[sub_resource type="AnimationNodeStateMachine" id=18]
-states/Off/node = SubResource( 5 )
+[sub_resource type="AnimationNodeStateMachine" id=19]
+states/Off/node = SubResource( 6 )
 states/Off/position = Vector2( 412, 82 )
-states/On/node = SubResource( 7 )
+states/On/node = SubResource( 8 )
 states/On/position = Vector2( 634, 178 )
-"states/On 2/node" = SubResource( 6 )
+"states/On 2/node" = SubResource( 7 )
 "states/On 2/position" = Vector2( 739, 265 )
-states/TurnOff/node = SubResource( 8 )
+states/TurnOff/node = SubResource( 9 )
 states/TurnOff/position = Vector2( 412, 178 )
-states/TurnOn/node = SubResource( 9 )
+states/TurnOn/node = SubResource( 10 )
 states/TurnOn/position = Vector2( 634, 82 )
-transitions = [ "Off", "TurnOn", SubResource( 10 ), "On", "TurnOff", SubResource( 11 ), "TurnOff", "Off", SubResource( 12 ), "TurnOn", "On", SubResource( 13 ), "On", "On 2", SubResource( 14 ), "On 2", "On", SubResource( 15 ), "On 2", "TurnOff", SubResource( 16 ), "TurnOff", "TurnOn", SubResource( 17 ) ]
+transitions = [ "Off", "TurnOn", SubResource( 11 ), "On", "TurnOff", SubResource( 12 ), "TurnOff", "Off", SubResource( 13 ), "TurnOn", "On", SubResource( 14 ), "On", "On 2", SubResource( 15 ), "On 2", "On", SubResource( 16 ), "On 2", "TurnOff", SubResource( 17 ), "TurnOff", "TurnOn", SubResource( 18 ) ]
 graph_offset = Vector2( -77, 60.486 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=19]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=20]
 
 [node name="MoveTile" type="StaticBody2D"]
 collision_layer = 0
@@ -185,7 +181,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 20 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 z_index = -1
@@ -203,14 +199,14 @@ modulate = Color( 0.133333, 0.298039, 0.145098, 1 )
 texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Off = SubResource( 1 )
-anims/On = SubResource( 2 )
-anims/TurnOff = SubResource( 3 )
-anims/TurnOn = SubResource( 4 )
+anims/Off = SubResource( 2 )
+anims/On = SubResource( 3 )
+anims/TurnOff = SubResource( 4 )
+anims/TurnOn = SubResource( 5 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 18 )
+tree_root = SubResource( 19 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 process_mode = 0
-parameters/playback = SubResource( 19 )
+parameters/playback = SubResource( 20 )

@@ -274,3 +274,4 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea"]
 shape = SubResource( 21 )
 [connection signal="body_entered" from="DropArea" to="." method="_on_DropArea_body_entered"]
+[connection signal="body_exited" from="DropArea" to="." method="_on_DropArea_body_exited"]

@@ -57,6 +57,7 @@ tracks/1/keys = {
 }
 
 [node name="ConveyorIn" type="StaticBody2D"]
+collision_layer = 0
 script = ExtResource( 6 )
 
 [node name="IconPoint" type="Position2D" parent="."]

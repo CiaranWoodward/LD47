@@ -21,7 +21,7 @@ func _ready():
 
 func _setCollision():
 	if HasItem():
-		self.collision_layer = Global.PhyLayer.ROBO + Global.PhyLayer.EMPTY_ROBO
+		self.collision_layer = 0
 		self.collision_mask = Global.PhyLayer.ROBO + Global.PhyLayer.EMPTY_ROBO
 	else:
 		self.collision_layer = 0

@@ -20,10 +20,10 @@ LEVEL_SIZE_Y = 12
 position = Vector2( 600, 525 )
 
 [node name="Robo3" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 375, 225 )
+position = Vector2( 375, 75 )
 
 [node name="Robo2" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 600, 375 )
+position = Vector2( 600, 300 )
 
 [node name="Robo4" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 225, 300 )
@@ -108,6 +108,8 @@ direction = 1
 
 [node name="MoveTile20" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 300, 525 )
+rotation = 4.71239
+direction = 3
 
 [node name="MoveTile21" parent="Level" instance=ExtResource( 2 )]
 position = Vector2( 150, 675 )
@@ -155,7 +157,7 @@ direction = 3
 [node name="MachineTile3" parent="Level" instance=ExtResource( 5 )]
 position = Vector2( 150, 525 )
 required_items = [ 2, 2 ]
-item_out = 4
+item_out = 14
 direction = 2
 
 [node name="WallTile" parent="Level" instance=ExtResource( 6 )]
@@ -228,7 +230,6 @@ item_period = 2.0
 [node name="StorageBox" parent="Level" instance=ExtResource( 7 )]
 position = Vector2( 300, 300 )
 item_type = 3
-max_size = 99
 
 [node name="BlockTile" parent="Level" instance=ExtResource( 8 )]
 position = Vector2( 750, 450 )

@@ -45,6 +45,7 @@ tracks/0/keys = {
 }
 
 [node name="ConveyorOut" type="StaticBody2D"]
+collision_layer = 0
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

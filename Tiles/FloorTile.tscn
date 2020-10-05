@@ -22,7 +22,7 @@ animations = [ {
 } ]
 
 [node name="FloorTile" type="Node2D"]
-modulate = Color( 0.584314, 0.584314, 0.584314, 1 )
+modulate = Color( 0.792157, 0.905882, 1, 1 )
 script = ExtResource( 12 )
 TILE_COLOR = [ Color( 0.831373, 0.921569, 1, 1 ), Color( 0.792157, 0.905882, 1, 1 ), Color( 0.92549, 0.964706, 1, 1 ) ]
 
