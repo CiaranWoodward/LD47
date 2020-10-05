@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Graphics/UI/ButtonPressed0000.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/UI/Button0000.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/UI/Dosis-VariableFont_wght.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Graphics/UI/ButtonHover0000.png" type="Texture" id=4]
+[ext_resource path="res://Level/UI/BuildSimple.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Level/UI/BuildFactory.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
@@ -63,3 +65,49 @@ theme = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -400.0
+margin_right = 0.00012207
+margin_bottom = 6.10352e-05
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 393.0
+margin_bottom = 713.0
+size_flags_vertical = 3
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 371.0
+margin_bottom = 691.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BuildSimple" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 356.0
+margin_bottom = 153.0
+
+[node name="BuildFactory" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
+margin_top = 157.0
+margin_right = 356.0
+margin_bottom = 423.0

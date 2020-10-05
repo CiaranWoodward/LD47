@@ -42,6 +42,37 @@ func instance_item(itemnum : int):
 		ItemType.ROBO:
 			return preload("res://Items/RoboHead.tscn").instance()
 
+func get_icon_texture(itemnum : int):
+	match itemnum:
+		ItemType.BAR:
+			return preload("res://Items/Icons/IronBar0000.png")
+		ItemType.COG:
+			return preload("res://Items/Icons/Cog0000.png")
+		ItemType.PLATE:
+			return preload("res://Items/Icons/IronPlate0000.png")
+		ItemType.COPPER_PLATE:
+			return preload("res://Items/Icons/CopperPlate0000.png")
+		ItemType.ARROW_PLATE:
+			return preload("res://Items/Icons/ArrowTile0000.png")
+		ItemType.CIRCUITBOARD:
+			return preload("res://Items/Icons/Curicuitboard0000.png")
+		ItemType.BLOCK_TILE:
+			return preload("res://Items/Icons/DumpTile0000.png")
+		ItemType.COPPER_BAR:
+			return preload("res://Items/Icons/CopperBar0000.png")
+		ItemType.MACHINE:
+			return preload("res://Items/Icons/Machine0000.png")
+		ItemType.ROBO_HEAD:
+			return preload("res://Items/Icons/RoboHead0000.png")
+		ItemType.ROBO_PART:
+			return preload("res://Items/Icons/RoboPart0000.png")
+		ItemType.WIRES:
+			return preload("res://Items/Icons/Wires0000.png")
+		ItemType.WALLS:
+			return preload("res://Items/Icons/Wall0000.png")
+		ItemType.ROBO:
+			return preload("res://Items/Icons/Robo0000.png")
+
 func get_dir_vec(dir : int):
 	var dir_vec = Vector2.ZERO
 	dir = dir % 4
