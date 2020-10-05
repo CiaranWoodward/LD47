@@ -140,15 +140,15 @@ margin_top = 443.0
 margin_right = 348.0
 margin_bottom = 788.0
 
-[node name="Button" type="Button" parent="."]
+[node name="MenuBut" type="Button" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
 margin_top = -70.0
-margin_right = 178.0
+margin_right = 70.0
 margin_bottom = -10.0
 theme = ExtResource( 8 )
-text = "MENU"
+text = "||"
 __meta__ = {
 "_edit_use_anchors_": false
 }

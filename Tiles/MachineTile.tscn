@@ -461,6 +461,9 @@ texture = ExtResource( 11 )
 [node name="FrontRight" type="AnimationPlayer" parent="Sprite/Slots/FrontRight"]
 anims/Building = SubResource( 5 )
 
+[node name="ItemPoint" type="Position2D" parent="Sprite"]
+position = Vector2( 14.2339, -31.4645 )
+
 [node name="WorkingTimer" type="Timer" parent="."]
 process_mode = 0
 one_shot = true

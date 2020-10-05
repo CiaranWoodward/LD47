@@ -16,6 +16,7 @@ var dropTile
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$"Sprite/ItemPoint".add_child(Global.instance_item(item_out))
 	if Engine.editor_hint:
 		return
 	var dirvec = Global.get_dir_vec(direction)

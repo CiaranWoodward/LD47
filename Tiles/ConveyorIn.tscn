@@ -61,7 +61,9 @@ collision_layer = 0
 script = ExtResource( 6 )
 
 [node name="IconPoint" type="Position2D" parent="."]
-position = Vector2( 0, -90 )
+position = Vector2( 0, -85 )
+scale = Vector2( 0.6, 0.6 )
+z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
