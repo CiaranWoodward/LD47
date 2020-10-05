@@ -1,23 +1,53 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://Level/MainCam.gd" type="Script" id=2]
 [ext_resource path="res://Level/UI/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Graphics/BackWall0000.png" type="Texture" id=4]
+[ext_resource path="res://Level/Border.gd" type="Script" id=5]
 
 [sub_resource type="Gradient" id=1]
-colors = PoolColorArray( 0, 0, 0, 0.682353, 1, 1, 1, 0 )
+colors = PoolColorArray( 1, 1, 1, 0, 0, 0, 0, 0.682353 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 width = 1024
 
 [sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0 )
-colors = PoolColorArray( 0.0666667, 0.0392157, 0.180392, 1 )
+colors = PoolColorArray( 0, 0, 0, 0.682353, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=4]
 gradient = SubResource( 3 )
+width = 1024
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.0666667, 0.0392157, 0.180392, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 3 )
+width = 1024
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 1, 1, 1, 0, 0, 0, 0, 0.682353 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+width = 1024
+
+[sub_resource type="LineShape2D" id=10]
+normal = Vector2( 0, 1 )
+
+[sub_resource type="LineShape2D" id=11]
+normal = Vector2( 1, 0 )
+
+[sub_resource type="LineShape2D" id=12]
+normal = Vector2( -1, 0 )
+
+[sub_resource type="LineShape2D" id=13]
 
 [node name="Level" type="YSort"]
 script = ExtResource( 1 )
@@ -47,11 +77,11 @@ __meta__ = {
 }
 
 [node name="FloorSize" type="Panel" parent="Control"]
-self_modulate = Color( 1, 1, 1, 0.356863 )
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = -37.0
 margin_top = -37.0
 margin_right = 712.0
-margin_bottom = 711.0
+margin_bottom = 716.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -92,26 +122,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FloorShadow2" type="TextureRect" parent="Control/FloorSize"]
-anchor_right = 1.0
-margin_right = -620.0
-margin_bottom = 751.0
-rect_rotation = 270.0
-texture = SubResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FloorShadow3" type="TextureRect" parent="Control/FloorSize"]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.0
-margin_top = 746.0
-margin_right = 74.0
-margin_bottom = 746.0
-rect_rotation = 180.0
+margin_left = -71.9999
+margin_right = 0.00012207
+rect_min_size = Vector2( 72, 0 )
+rect_rotation = 360.0
 texture = SubResource( 2 )
 expand = true
 __meta__ = {
@@ -122,21 +140,7 @@ __meta__ = {
 anchor_bottom = 1.0
 margin_right = 72.0
 rect_rotation = 359.999
-texture = SubResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FloorShadow" type="TextureRect" parent="Control/FloorSize"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 375.0
-margin_right = 447.0
-margin_bottom = 750.0
-grow_horizontal = 2
-rect_rotation = 89.9999
-texture = SubResource( 2 )
+texture = SubResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -147,7 +151,7 @@ anchor_bottom = 1.0
 margin_left = -36.0
 margin_top = -173.0
 margin_bottom = -111.0
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -161,7 +165,7 @@ margin_left = -1.5
 margin_top = -173.0
 margin_right = 33.5
 margin_bottom = -111.0
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -171,8 +175,55 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = -173.0
 margin_bottom = -132.0
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FloorShadow2" type="TextureRect" parent="Control"]
+anchor_right = 1.0
+margin_left = -37.0
+margin_top = -37.0
+margin_right = 63.0
+margin_bottom = 711.0
+rect_min_size = Vector2( 100, 0 )
+rect_rotation = 270.0
+texture = SubResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FloorShadow3" type="TextureRect" parent="Control"]
+anchor_right = 1.0
+margin_left = -40.0
+margin_top = 36.0
+margin_right = 32.0
+margin_bottom = 785.0
+rect_min_size = Vector2( 72, 0 )
+rect_rotation = 270.0
+texture = SubResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Border" type="StaticBody2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Top" type="CollisionShape2D" parent="Border"]
+position = Vector2( 0, -37 )
+shape = SubResource( 10 )
+
+[node name="Left" type="CollisionShape2D" parent="Border"]
+position = Vector2( -37, 0 )
+shape = SubResource( 11 )
+
+[node name="Right" type="CollisionShape2D" parent="Border"]
+position = Vector2( 713, 0 )
+shape = SubResource( 12 )
+
+[node name="Bottom" type="CollisionShape2D" parent="Border"]
+position = Vector2( 0, 713 )
+shape = SubResource( 13 )

@@ -18,7 +18,7 @@ var dir_vec = Vector2.ZERO
 var moving = false
 var dragging = false
 
-var MaxPos = Vector2(1, 1)
+var MaxPos : Vector2 = Vector2(1, 1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
