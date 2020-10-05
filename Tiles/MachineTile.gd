@@ -12,11 +12,12 @@ export(Global.Dir) var direction = Global.Dir.UP
 var inventory = []
 var isReady = true
 var pendingRelease = false
-var dropTile
+var dropTile : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"Sprite/ItemPoint".add_child(Global.instance_item(item_out))
+	item_id = Global.ItemType.MACHINE
 	if Engine.editor_hint:
 		return
 	var dirvec = Global.get_dir_vec(direction)
@@ -28,6 +29,11 @@ func _ready():
 	get_parent().call_deferred("set_tile", tc + dirvec, dropTile)
 	dropTile.connect("item_taken", self, "_item_taken")
 	dropTile.connect("zone_cleared", self, "_zone_cleared")
+
+func _exit_tree():
+	if Engine.editor_hint:
+		return
+	dropTile.queue_free()
 
 func _checkComplete():
 	var complete = true

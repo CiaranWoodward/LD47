@@ -72,6 +72,7 @@ playback_process_mode = 0
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -82,6 +83,7 @@ margin_left = -37.0
 margin_top = -37.0
 margin_right = 713.0
 margin_bottom = 713.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -189,6 +191,7 @@ margin_right = 63.0
 margin_bottom = 713.0
 rect_min_size = Vector2( 100, 0 )
 rect_rotation = 270.0
+mouse_filter = 2
 texture = SubResource( 7 )
 expand = true
 __meta__ = {
@@ -203,6 +206,7 @@ margin_right = 32.0
 margin_bottom = 786.0
 rect_min_size = Vector2( 72, 0 )
 rect_rotation = 270.0
+mouse_filter = 2
 texture = SubResource( 9 )
 expand = true
 __meta__ = {

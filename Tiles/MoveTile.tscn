@@ -176,7 +176,7 @@ graph_offset = Vector2( -77, 60.486 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=20]
 
 [node name="MoveTile" type="StaticBody2D"]
-collision_layer = 0
+collision_layer = 16
 collision_mask = 0
 script = ExtResource( 2 )
 

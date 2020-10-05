@@ -3,7 +3,7 @@ extends BaseTile
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	item_id = Global.ItemType.WALLS
 
 func IsStopper(_itemtype):
 	return true

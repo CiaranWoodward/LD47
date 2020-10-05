@@ -1,7 +1,9 @@
 tool
 extends Node
 
-enum ItemType {NONE,BAR,COG,PLATE,COPPER_PLATE,ARROW_PLATE,CIRCUITBOARD,BLOCK_TILE,COPPER_BAR,MACHINE,ROBO_HEAD,ROBO_PART,WALLS,WIRES,ROBO}
+signal deconstruct_mode_changed(enabled)
+
+enum ItemType {NONE,BAR,COG,PLATE,COPPER_PLATE,ARROW_PLATE,CIRCUITBOARD,BLOCK_TILE,COPPER_BAR,MACHINE,ROBO_HEAD,ROBO_PART,WALLS,WIRES,STORAGE_BOX,ROBO}
 enum Dir {UP, RIGHT, DOWN, LEFT}
 enum TransitionType {LINEAR = 0,SINE = 1,QUINT = 2,QUART = 3,QUAD = 4,EXPO = 5,ELASTIC = 6,CUBIC = 7,CIRC = 8,BOUNCE = 9,BACK = 10}
 enum EaseType {IN = 0,OUT=1,IN_OUT=2,OUT_IN=3}
@@ -89,3 +91,6 @@ func get_dir_vec(dir : int):
 
 func deposit_item(itemnum : int):
 	pass
+
+func set_deconstruct_mode(enabled):
+	emit_signal("deconstruct_mode_changed", enabled)

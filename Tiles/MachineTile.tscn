@@ -267,7 +267,7 @@ tracks/0/keys = {
 
 [node name="MachineTile" type="StaticBody2D"]
 position = Vector2( 0, 1 )
-collision_layer = 0
+collision_layer = 16
 script = ExtResource( 1 )
 required_items = [ 0 ]
 

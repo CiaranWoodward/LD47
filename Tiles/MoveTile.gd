@@ -9,6 +9,7 @@ onready var animsm : AnimationNodeStateMachinePlayback = animtree["parameters/pl
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	item_id = Global.ItemType.ARROW_PLATE
 	animtree.active = true
 	animsm.start("Off")
 

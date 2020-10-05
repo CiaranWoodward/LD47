@@ -11,6 +11,7 @@ var cur_itemvis
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	item_id = Global.ItemType.STORAGE_BOX
 	itemslots.push_back($"Sprite/Box/Item1")
 	itemslots.push_back($"Sprite/Box/Item2")
 	itemslots.push_back($"Sprite/Box/Item3")

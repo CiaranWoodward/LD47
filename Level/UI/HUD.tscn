@@ -64,6 +64,7 @@ VScrollBar/styles/scroll_focus = null
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false

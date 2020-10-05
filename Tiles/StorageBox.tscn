@@ -9,7 +9,7 @@
 extents = Vector2( 35.6019, 35.5439 )
 
 [node name="StorageBox" type="StaticBody2D"]
-collision_layer = 0
+collision_layer = 16
 collision_mask = 5
 script = ExtResource( 1 )
 

@@ -15,6 +15,7 @@ func _ready():
 		$"Sprite/ItemPoint".add_child(cur_itemvis)
 	animtree.active = true
 	animsm.start("Off")
+	item_id = Global.ItemType.BLOCK_TILE
 
 func _setCollision():
 		self.collision_layer = 0

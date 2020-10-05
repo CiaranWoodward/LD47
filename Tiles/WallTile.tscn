@@ -7,7 +7,7 @@
 extents = Vector2( 37.1002, 37.4168 )
 
 [node name="WallTile" type="StaticBody2D"]
-collision_layer = 2147483649
+collision_layer = 2147483665
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
