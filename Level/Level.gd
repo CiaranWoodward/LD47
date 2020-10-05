@@ -66,5 +66,9 @@ func rm_tile(tc : Vector2):
 	var key = tc.round() #Probably unnecessary, wish we had Vec2i
 	MapDict.erase(key)
 
+func next_level():
+	if get_parent().has_method("next_level"):
+		get_parent().next_level()
+
 func get_build_cursor():
 	return $BuildCursor

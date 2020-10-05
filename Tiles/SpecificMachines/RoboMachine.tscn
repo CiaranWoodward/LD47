@@ -4,7 +4,7 @@
 
 [node name="MachineTile" instance=ExtResource( 1 )]
 required_items = [ 11, 11, 10 ]
-item_out = 14
+item_out = 15
 work_time = 12.0
 
 [node name="CPUParticles2D" parent="Sprite/Slots/TopRight/Pipes" index="0"]

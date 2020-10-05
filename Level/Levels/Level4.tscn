@@ -16,11 +16,12 @@
 script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 1 )]
 visible = false
-speech = [ "Oooooh look! A machine that needs three different ingredients!", "That one needs a circuitboard, wires and a robo part to make a robo head.", "Oh yes, I'm sure you knew already, but we make robots at this factory!", "Only worker bots though...", "Not the pretty ones like me!", "It seems like our factory builder has messed up massively with this one...", "They haven't even bothered to make a path to get wires into the machine that makes robo heads...", "They also haven't connected the machine deposit to the \"Out\" conveyor...", "Head office keeps going on at me for having low productivity and no wonder why when half our factory is incomplete!", "It's not my fault!", "It's those INCOMPETENT FACTORY BUILDERS!", "AND JUST LOOK AT THOSE BOTS STUCK WALKING INTO EACH OTHER!", "AND THEY KEEP BLAMING ME?!", "Oh! Sorry, I forgot myself for a moment.", "Arthur Fisher Intelligence is a great organisation as you must know from our stellar reputation!", "Anyhow, while you're here, you may as well use those spare tiles and walls...", "It's all part of the factory tour that's all!" ]
-emotion = [ 0, 2, 2, 2, 0, 2, 2, 2, 2, 2, 1, 1, 1, 2, 0, 2, 0 ]
+speech = [ "Oooooh look! A machine that needs three different ingredients!", "That one needs a circuitboard, wires and a robo part to make a robo head.", "Oh yes, I'm sure you knew already, but we make robots at this factory!", "Only worker bots though...", "Not the pretty ones like me!", "It seems like our factory builder has messed up massively with this one...", "They haven't even bothered to make a path to get wires into the machine that makes robo heads...", "They also haven't connected the machine deposit to the \"Out\" conveyor...", "Head office keeps going on at me for having low productivity and no wonder why when half our factory is incomplete!", "It's not my fault!", "It's those INCOMPETENT FACTORY BUILDERS!", "AND JUST LOOK AT THOSE BOTS STUCK WALKING INTO EACH OTHER!", "AND THEY KEEP BLAMING ME?!", "Oh! Sorry, I forgot myself for a moment.", "Arthur Fisher Intelligence is a great organisation as you must know from our stellar reputation!", "Anyhow, while you're here, you may as well use those spare tiles and walls...", "It's all part of the factory tour that's all!", "I have some things to sort out. Come into the next room when you've made 3 robo heads." ]
+emotion = [ 0, 2, 2, 2, 0, 2, 2, 2, 2, 2, 1, 1, 1, 2, 0, 2, 0, 2 ]
 
 [node name="Level" parent="." instance=ExtResource( 2 )]
 position = Vector2( 36.7531, -7.49152 )
@@ -118,6 +119,7 @@ direction = 2
 
 [node name="ConveyorOut" parent="Level" instance=ExtResource( 10 )]
 position = Vector2( 0, 375 )
+REMOVE_TIME = 0.4
 
 [node name="ConveyorIn2" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 150, 75 )

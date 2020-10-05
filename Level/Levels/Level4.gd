@@ -32,7 +32,14 @@ func _ready():
 	Global.deposit_item(Global.ItemType.WALLS)
 	Global.deposit_item(Global.ItemType.WALLS)
 	Global.deposit_item(Global.ItemType.WALLS)
+	Global.connect("itemcounts_changed", self, "check_completion")
 
+func check_completion():
+	if Global.get_itemcount(Global.ItemType.ROBO_HEAD) >= 3:
+		get_node("Level/HUD/NextLevel").visible = true
+
+func next_level():
+	get_tree().change_scene("res://Level/Levels/Level5.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

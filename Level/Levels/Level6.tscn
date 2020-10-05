@@ -50,10 +50,12 @@ position = Vector2( 1425, 825 )
 
 [node name="ConveyorOut" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 150, 75 )
+REMOVE_TIME = 0.4
 
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 5 )]
 position = Vector2( 1275, 225 )
 item_type = 4
+item_period = 5.0
 
 [node name="ConveyorIn2" parent="Level" instance=ExtResource( 5 )]
 position = Vector2( 525, 600 )
@@ -63,24 +65,31 @@ item_period = 30.0
 [node name="ConveyorIn3" parent="Level" instance=ExtResource( 5 )]
 position = Vector2( 1425, 900 )
 item_type = 13
+item_period = 5.0
 
 [node name="ConveyorIn4" parent="Level" instance=ExtResource( 5 )]
 position = Vector2( 1050, 75 )
 item_type = 3
+item_period = 5.0
 
 [node name="ConveyorIn5" parent="Level" instance=ExtResource( 5 )]
 position = Vector2( 150, 975 )
 item_type = 6
+item_period = 5.0
 
 [node name="ConveyorIn6" parent="Level" instance=ExtResource( 5 )]
 position = Vector2( 1125, 1125 )
 item_type = 3
+item_period = 5.0
 
 [node name="ConveyorIn7" parent="Level" instance=ExtResource( 5 )]
 position = Vector2( 675, 1350 )
+item_type = 0
+item_period = 5.0
 
 [node name="MachineTile" parent="Level" instance=ExtResource( 7 )]
 position = Vector2( 450, 975 )
+item_out = 15
 direction = 1
 
 [node name="MachineTile2" parent="Level" instance=ExtResource( 8 )]

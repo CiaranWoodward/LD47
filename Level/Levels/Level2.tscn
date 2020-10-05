@@ -15,8 +15,8 @@ script = ExtResource( 5 )
 layer = 100
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 1 )]
-speech = [ "Welcome to the next stop on our tour!", "This is the room where we...", "Wait...", "WHERE ARE ALL THE WORKERS?!", "*sigh* It's okay, we can put some workers in from your build menu.", "You've got some arrow tiles there as well so you can direct them to where you want them to go.", "Try making one put plates into the cog making machine.", "The other can take the cogs from the machine output pile to the \"out\" conveyor.", "Robots will stop to pickup items from a machine deposit.", "If there is not an item there, they will walk over the tile.", "If they walk directly into a machine over a deposit tile, they will turn around.", "Have a go at generating some cogs!", "If you make a mistake, you can remove tiles you've placed using the \"Deconstruct\" option in the build menu!", "I'm so happy you're able to have lot's of fun in the factory with us!", "Some may call it free labour, but I call it a rare, first-hand experience!" ]
-emotion = [ 0, 2, 2, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0 ]
+speech = [ "Welcome to the next stop on our tour!", "This is the room where we...", "Wait...", "WHERE ARE ALL THE WORKERS?!", "*sigh* It's okay, we can put some workers in from your build menu.", "You've got some arrow tiles there as well so you can direct them to where you want them to go.", "Try making one put plates into the cog making machine.", "The other can take the cogs from the machine output pile to the \"out\" conveyor.", "Robots will stop to pickup items from a machine deposit.", "If there is not an item there, they will walk over the tile.", "If they walk directly into a machine over a deposit tile, they will turn around.", "Have a go at generating some cogs!", "If you make a mistake, you can remove tiles you've placed using the \"Deconstruct\" option in the build menu!", "I'm so happy you're able to have lot's of fun in the factory with us!", "Some may call it free labour, but I call it a rare, first-hand experience!", "Once you've made 5 cogs, we can continue with the tour!" ]
+emotion = [ 0, 2, 2, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0 ]
 
 [node name="Level" parent="." instance=ExtResource( 2 )]
 LEVEL_SIZE_Y = 7
@@ -24,6 +24,7 @@ LEVEL_SIZE_Y = 7
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 7 )]
 position = Vector2( 600, 75 )
 item_type = 3
+item_period = 5.0
 
 [node name="WallTile" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 600, 0 )
@@ -37,3 +38,4 @@ direction = 3
 
 [node name="ConveyorOut" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 225, 375 )
+REMOVE_TIME = 0.4

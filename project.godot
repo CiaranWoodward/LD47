@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD47"
-run/main_scene="res://Level/TestLevel.tscn"
+run/main_scene="res://Level/UI/SplashScreens/StartScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
