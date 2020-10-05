@@ -69,6 +69,10 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and (event.button_index == BUTTON_LEFT):
 		if event.is_pressed() && is_instance_valid(instance):
 			instance.position = position
+			if "direction" in instance:
+				instance.direction = direction
+			if "player_built" in instance:
+				instance.player_built = true
 			get_parent().add_child(instance)
 			Set(null, false)
 	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT:

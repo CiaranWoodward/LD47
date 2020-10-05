@@ -51,7 +51,7 @@ func _on_input_event(node, event, shape_idx):
 		modulate = Color(1, 0.4, 0.4, 1)
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.is_pressed():
-			self.get_parent().remove_child(self)
+			self.queue_free()
 
 func _on_deconstruct_mode_changed(enabled : bool):
 	if !player_built:

@@ -259,6 +259,8 @@ item_type = 2
 
 [node name="ConveyorOut" parent="Level" instance=ExtResource( 9 )]
 position = Vector2( 75, 300 )
+REMOVE_TIME = 0.4
 
 [node name="ConveyorOut2" parent="Level" instance=ExtResource( 9 )]
 position = Vector2( 450, 525 )
+REMOVE_TIME = 0.4

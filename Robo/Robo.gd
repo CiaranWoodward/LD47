@@ -22,6 +22,7 @@ var cur_speed : float = 0
 var cur_item = Global.ItemType.NONE
 var cur_itemvis
 var offloading = false
+var deconstructable = false
 
 var item_id = Global.ItemType.ROBO
 
@@ -31,6 +32,11 @@ func _ready():
 		return
 	SnapToGrid()
 	_set_collision()
+	if !Engine.editor_hint:
+		self.connect("input_event", self, "_on_input_event")
+		self.connect("mouse_entered", self, "_on_mouse_enter")
+		self.connect("mouse_exited", self, "_on_mouse_exit")
+		Global.connect("deconstruct_mode_changed", self, "_on_deconstruct_mode_changed")
 
 func GetTileCoords():
 	return get_parent().world_to_tile_coords(get_position())
@@ -173,3 +179,30 @@ func _on_MoveTweener_tween_all_completed():
 	match cur_state:
 		State.STOPPING:
 			cur_state = State.STOPPED
+
+func _on_mouse_enter():
+	if !deconstructable:
+		return
+	modulate = Color(1, 0.4, 0.4, 1)
+
+func _on_mouse_exit():
+	if !deconstructable:
+		return
+	modulate = Color(1, 0.6, 0.6, 1)
+
+func _on_input_event(node, event, shape_idx):
+	if !deconstructable:
+		return
+	if event is InputEventMouseMotion:
+		modulate = Color(1, 0.4, 0.4, 1)
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.is_pressed():
+			Global.deposit_item(Global.ItemType.ROBO)
+			self.queue_free()
+
+func _on_deconstruct_mode_changed(enabled : bool):
+	deconstructable = enabled
+	if enabled:
+		modulate = Color(1, 0.6, 0.6, 1)
+	else:
+		modulate = Color(1, 1, 1, 1)
