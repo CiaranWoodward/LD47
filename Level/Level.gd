@@ -26,7 +26,8 @@ func _ready():
 	# Yes this is confusing, the texturerects are rotated:
 	$"Control/FloorShadow2".rect_size.y = LEVEL_SIZE_X * TILE_SIZE
 	$"Control/FloorShadow3".rect_size.y = LEVEL_SIZE_X * TILE_SIZE
-	Global.set_deconstruct_mode(true)
+	Global.current_level = self
+	Global.deposit_item(Global.ItemType.ARROW_PLATE)
 
 func world_to_tile_coords(pos : Vector2):
 	var retval : Vector2 = pos
@@ -64,3 +65,6 @@ func reg_tile(object : Node2D):
 func rm_tile(tc : Vector2):
 	var key = tc.round() #Probably unnecessary, wish we had Vec2i
 	MapDict.erase(key)
+
+func get_build_cursor():
+	return $BuildCursor

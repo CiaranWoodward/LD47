@@ -11,6 +11,7 @@ enum EaseType {IN = 0,OUT=1,IN_OUT=2,OUT_IN=3}
 enum PhyLayer {ROBO = 1, FULL_ROBO = 2, EMPTY_ROBO = 4, SPECIAL_TILE = 8}
 
 var item_counts = {}
+var current_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -93,6 +94,8 @@ func get_dir_vec(dir : int):
 	return dir_vec
 
 func deposit_item(itemnum : int):
+	if itemnum == Global.ItemType.NONE:
+		return
 	if item_counts.has(itemnum):
 		item_counts[itemnum] += 1
 	else:
@@ -100,10 +103,12 @@ func deposit_item(itemnum : int):
 	emit_signal("itemcounts_changed")
 	
 func take_item(itemnum : int):
+	if itemnum == Global.ItemType.NONE:
+		return false
 	if item_counts.has(itemnum) && item_counts[itemnum] > 0:
 		item_counts[itemnum] -= 1
-		return true
 		emit_signal("itemcounts_changed")
+		return true
 	return false
 
 func get_itemcount(itemnum : int):

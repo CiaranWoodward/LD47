@@ -36,6 +36,10 @@ func _can_place():
 	var tc = get_parent().world_to_tile_coords(position)
 	if item == Global.ItemType.MACHINE:
 		return _tile_free(tc) && _tile_free(tc + Global.get_dir_vec(direction))
+	elif item == Global.ItemType.ROBO:
+		if !get_parent().is_tc_on_map(tc):
+			return false
+		return _tile_free(tc) || !get_parent().get_tile(tc).has_method("IsStopper") || !get_parent().get_tile(tc).IsStopper(Global.ItemType.NONE)
 	else:
 		return _tile_free(tc)
 
@@ -63,7 +67,7 @@ func _unhandled_input(event):
 			self.modulate = Color(1, 1, 1, 0)
 			return
 	if event is InputEventMouseButton and (event.button_index == BUTTON_LEFT):
-		if event.is_pressed():
+		if event.is_pressed() && is_instance_valid(instance):
 			instance.position = position
 			get_parent().add_child(instance)
 			Set(null, false)
@@ -74,9 +78,11 @@ func _unhandled_input(event):
 		_rotate()
 
 func Set(iteminstance, deposit = true):
-	if !is_instance_valid(iteminstance):
-		if deposit:
+	if deposit:
 			Global.deposit_item(item)
+	if !is_instance_valid(iteminstance):
 		_set_item(Global.ItemType.NONE)
-	_set_item(iteminstance.item_id)
-	instance = iteminstance
+		instance = null
+	else:
+		_set_item(iteminstance.item_id)
+		instance = iteminstance

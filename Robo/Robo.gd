@@ -23,6 +23,8 @@ var cur_item = Global.ItemType.NONE
 var cur_itemvis
 var offloading = false
 
+var item_id = Global.ItemType.ROBO
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if offloading:
