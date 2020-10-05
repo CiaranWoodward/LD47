@@ -15,14 +15,14 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 34.4861, 34.7195 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, -0.345455, 0, 1, Vector2( 1, 0.654545 ), -1.31818, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.0794702, 1 )
 colors = PoolColorArray( 0.819608, 0.819608, 0.819608, 1, 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 resource_name = "Building"
 length = 0.8
 loop = true
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=5]
 resource_name = "Building"
 length = 0.7
 loop = true
@@ -57,8 +57,7 @@ tracks/0/keys = {
 "values": [ -270.0, 0.0, 360.0, 0.0, 90.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Building"
+[sub_resource type="Animation" id=6]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -78,7 +77,7 @@ tracks/1/path = NodePath("Sprite/Slots/TopRight/Pipes/CPUParticles2D:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -146,8 +145,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 0.496941, 0.453382 ), Vector2( 0.5, 0.5 ), Vector2( 0.498165, 0.472029 ), Vector2( 0.5, 0.5 ), Vector2( 0.499388, 0.490676 ), Vector2( 0.5, 0.5 ), Vector2( 0.498776, 0.481353 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=7]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -187,8 +185,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0.5, 0.5 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Building"
+[sub_resource type="Animation" id=8]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -252,8 +249,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Idle"
+[sub_resource type="Animation" id=9]
 length = 0.001
 loop = true
 tracks/0/type = "value"
@@ -321,8 +317,8 @@ angular_velocity = 20.0
 angular_velocity_random = 1.0
 angle = 90.0
 angle_random = 1.0
-scale_amount_curve = SubResource( 4 )
-color_ramp = SubResource( 5 )
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
 hue_variation_random = 1.0
 
 [node name="ColourDial" type="Sprite" parent="Sprite/Slots/TopRight"]
@@ -383,8 +379,8 @@ angular_velocity = 20.0
 angular_velocity_random = 1.0
 angle = 90.0
 angle_random = 1.0
-scale_amount_curve = SubResource( 4 )
-color_ramp = SubResource( 5 )
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
 hue_variation_random = 1.0
 
 [node name="ColourDial" type="Sprite" parent="Sprite/Slots/TopLeft"]
@@ -436,7 +432,7 @@ texture = ExtResource( 7 )
 offset = Vector2( -0.0485458, -2.23059 )
 
 [node name="FrontLeft" type="AnimationPlayer" parent="Sprite/Slots/FrontLeft"]
-anims/Building = SubResource( 8 )
+anims/Building = SubResource( 4 )
 
 [node name="Plate" type="Sprite" parent="Sprite/Slots/FrontLeft"]
 position = Vector2( -47.4776, 22.1 )
@@ -463,17 +459,17 @@ scale = Vector2( 1.40519, 1.40519 )
 texture = ExtResource( 11 )
 
 [node name="FrontRight" type="AnimationPlayer" parent="Sprite/Slots/FrontRight"]
-anims/Building = SubResource( 9 )
+anims/Building = SubResource( 5 )
 
 [node name="WorkingTimer" type="Timer" parent="."]
 process_mode = 0
 one_shot = true
 
 [node name="TopRight" type="AnimationPlayer" parent="."]
-anims/Building = SubResource( 3 )
-anims/Idle = SubResource( 2 )
-
-[node name="TopLeft" type="AnimationPlayer" parent="."]
 anims/Building = SubResource( 6 )
 anims/Idle = SubResource( 7 )
+
+[node name="TopLeft" type="AnimationPlayer" parent="."]
+anims/Building = SubResource( 8 )
+anims/Idle = SubResource( 9 )
 [connection signal="timeout" from="WorkingTimer" to="." method="_on_WorkingTimer_timeout"]
