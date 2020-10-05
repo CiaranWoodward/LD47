@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://Level/MainCam.gd" type="Script" id=2]
 [ext_resource path="res://Level/UI/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Graphics/BackWall0000.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 0, 0, 0.682353, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 1024
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.0666667, 0.0392157, 0.180392, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
 [node name="Level" type="YSort"]
 script = ExtResource( 1 )
@@ -23,3 +38,141 @@ STOP_TIME = 0.3
 playback_process_mode = 0
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FloorSize" type="Panel" parent="Control"]
+self_modulate = Color( 1, 1, 1, 0.356863 )
+margin_left = -37.0
+margin_top = -37.0
+margin_right = 712.0
+margin_bottom = 711.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackWall" type="TextureRect" parent="Control/FloorSize"]
+anchor_right = 1.0
+margin_top = -131.573
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftFront" type="TextureRect" parent="Control/FloorSize"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -36.0
+margin_top = -109.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightFront" type="TextureRect" parent="Control/FloorSize"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = -109.0
+margin_right = 36.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FloorShadow2" type="TextureRect" parent="Control/FloorSize"]
+anchor_right = 1.0
+margin_right = -620.0
+margin_bottom = 751.0
+rect_rotation = 270.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FloorShadow3" type="TextureRect" parent="Control/FloorSize"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 746.0
+margin_right = 74.0
+margin_bottom = 746.0
+rect_rotation = 180.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FloorShadow4" type="TextureRect" parent="Control/FloorSize"]
+anchor_bottom = 1.0
+margin_right = 72.0
+rect_rotation = 359.999
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FloorShadow" type="TextureRect" parent="Control/FloorSize"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 375.0
+margin_right = 447.0
+margin_bottom = 750.0
+grow_horizontal = 2
+rect_rotation = 89.9999
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftWall" type="TextureRect" parent="Control/FloorSize"]
+anchor_bottom = 1.0
+margin_left = -36.0
+margin_top = -173.0
+margin_bottom = -111.0
+texture = SubResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightWall" type="TextureRect" parent="Control/FloorSize"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.5
+margin_top = -173.0
+margin_right = 33.5
+margin_bottom = -111.0
+texture = SubResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackTop" type="TextureRect" parent="Control/FloorSize"]
+anchor_right = 1.0
+margin_top = -173.0
+margin_bottom = -132.0
+texture = SubResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
