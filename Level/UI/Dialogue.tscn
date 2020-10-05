@@ -89,7 +89,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-speech = [ "Hello, i'm happy" ]
+speech = [ "" ]
 emotion = [ 0 ]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -173,7 +173,7 @@ margin_right = -260.056
 margin_bottom = -22.9438
 mouse_filter = 1
 visible_characters = 500
-text = "Hello, i'm happy. lalalala lala lalala lalala lalal lalalal lalala lalala laaaa lalalalal lalala haheheee"
+text = "Hello, i'm happy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
