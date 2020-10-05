@@ -24,7 +24,7 @@ var MaxPos : Vector2 = Vector2(1, 1)
 func _ready():
 	pass # Replace with function body.
 
-func _input(event):
+func _unhandled_input(event):
 	if event is InputEventMouseButton and (event.button_index == BUTTON_RIGHT || event.button_index == BUTTON_MIDDLE):
 		if event.is_pressed():
 			dragging = true

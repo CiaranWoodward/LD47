@@ -38,6 +38,14 @@ func tile_to_world_coords(tc : Vector2):
 	var retval = tc * TILE_SIZE
 	return retval
 
+func is_tc_on_map(tc : Vector2):
+	if tc.x > 0 && tc.y > 0 && tc.x < LEVEL_SIZE_X && tc.y < LEVEL_SIZE_Y:
+		return true
+	return false
+
+func is_wc_on_map(wc : Vector2):
+	return is_tc_on_map(world_to_tile_coords(wc))
+
 func get_tile(tc : Vector2):
 	var key = tc.round() #Probably unnecessary, wish we had Vec2i
 	return MapDict.get(key)
