@@ -1,7 +1,7 @@
 tool
 extends Node
 
-enum ItemType {NONE,BAR,COG,PLATE,ROBO}
+enum ItemType {NONE,BAR,COG,PLATE,COPPER_PLATE,ARROW_PLATE,CIRCUITBOARD,BLOCK_TILE,COPPER_BAR,MACHINE,ROBO_HEAD,ROBO_PART,WALLS,WIRES,ROBO}
 enum Dir {UP, RIGHT, DOWN, LEFT}
 enum TransitionType {LINEAR = 0,SINE = 1,QUINT = 2,QUART = 3,QUAD = 4,EXPO = 5,ELASTIC = 6,CUBIC = 7,CIRC = 8,BOUNCE = 9,BACK = 10}
 enum EaseType {IN = 0,OUT=1,IN_OUT=2,OUT_IN=3}
@@ -19,6 +19,26 @@ func instance_item(itemnum : int):
 			return preload("res://Items/Cog.tscn").instance()
 		ItemType.PLATE:
 			return preload("res://Items/IronPlate.tscn").instance()
+		ItemType.COPPER_PLATE:
+			return preload("res://Items/CopperPlate.tscn").instance()
+		ItemType.ARROW_PLATE:
+			return preload("res://Items/ArrowTile.tscn").instance()
+		ItemType.CIRCUITBOARD:
+			return preload("res://Items/Circuitboard.tscn").instance()
+		ItemType.BLOCK_TILE:
+			return preload("res://Items/DumpTile.tscn").instance()
+		ItemType.COPPER_BAR:
+			return preload("res://Items/CopperBar.tscn").instance()
+		ItemType.MACHINE:
+			return preload("res://Items/Machine.tscn").instance()
+		ItemType.ROBO_HEAD:
+			return preload("res://Items/RoboHead.tscn").instance()
+		ItemType.ROBO_PART:
+			return preload("res://Items/RoboPart.tscn").instance()
+		ItemType.WIRES:
+			return preload("res://Items/Wires.tscn").instance()
+		ItemType.WALLS:
+			return preload("res://Items/Wall.tscn").instance()
 		ItemType.ROBO:
 			return preload("res://Items/RoboHead.tscn").instance()
 

@@ -5,9 +5,9 @@
 [node name="RoboHead" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.4, 0.4 )
 
 [node name="RoboHead" type="Sprite" parent="Sprite"]
-position = Vector2( -0.123383, -0.381691 )
+position = Vector2( 0.868743, -39.0746 )
 texture = ExtResource( 1 )
 offset = Vector2( 1.31259, 34.8687 )

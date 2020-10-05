@@ -5,9 +5,9 @@
 [node name="Machine" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.4, 0.4 )
 
 [node name="Machine" type="Sprite" parent="Sprite"]
-position = Vector2( -235.825, 38.6754 )
+position = Vector2( -229.7, -11.1778 )
 texture = ExtResource( 1 )
 offset = Vector2( 237.014, -4.18838 )

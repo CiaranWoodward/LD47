@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tiles/Graphics/Conveyor/HoodShadow0000.png" type="Texture" id=1]
 [ext_resource path="res://Tiles/Graphics/Conveyor/Belt0000.png" type="Texture" id=2]
@@ -28,6 +28,34 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 20 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "In"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("ItemPoint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -32.4059 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ItemPoint:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="ConveyorIn" type="StaticBody2D"]
 script = ExtResource( 6 )
 
@@ -50,6 +78,7 @@ texture = ExtResource( 5 )
 texture = ExtResource( 3 )
 
 [node name="Belt" type="Sprite" parent="Sprite"]
+position = Vector2( 0, 0.402685 )
 texture = ExtResource( 2 )
 
 [node name="HoodShadow" type="Sprite" parent="Sprite"]
@@ -59,10 +88,13 @@ texture = ExtResource( 1 )
 texture = ExtResource( 4 )
 
 [node name="ItemPoint" type="Position2D" parent="."]
+modulate = Color( 1, 1, 1, 0.176471 )
+position = Vector2( 0, -32.4059 )
 z_index = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Belt = SubResource( 2 )
+anims/In = SubResource( 3 )
 
 [node name="ItemTimer" type="Timer" parent="."]
 wait_time = 5.0

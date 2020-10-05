@@ -8,6 +8,6 @@
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Wires" type="Sprite" parent="Sprite"]
-position = Vector2( -0.123383, -0.381691 )
+position = Vector2( -0.123383, -13.3964 )
 texture = ExtResource( 1 )
 offset = Vector2( 1.31259, 34.8687 )

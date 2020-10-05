@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.668167, 3.56359 )
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.6, 0.78 )
 z_index = 1
 
 [node name="Wall" type="Sprite" parent="Sprite"]
