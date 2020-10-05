@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 20 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "In"
 length = 0.4
 tracks/0/type = "value"
@@ -96,7 +96,7 @@ z_index = 1
 anims/Belt = SubResource( 2 )
 
 [node name="AnimationPlayerIn" type="AnimationPlayer" parent="."]
-anims/In = SubResource( 5 )
+anims/In = SubResource( 3 )
 
 [node name="ItemTimer" type="Timer" parent="."]
 wait_time = 5.0

@@ -92,7 +92,6 @@ size_flags_stretch_ratio = 20.0
 [node name="Icon" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 margin_left = 89.0
 margin_right = 164.0
-size = Vector2( 75, 75 )
 
 [node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 168.0
@@ -118,7 +117,6 @@ __meta__ = {
 margin_left = 247.0
 margin_right = 322.0
 item_type = 3
-size = Vector2( 75, 75 )
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 326.0
@@ -152,29 +150,24 @@ __meta__ = {
 [node name="Req1" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
 margin_right = 100.0
 item_type = 1
-size = Vector2( 75, 75 )
 
 [node name="Req2" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
 margin_left = 104.0
 margin_right = 204.0
 item_type = 2
-size = Vector2( 75, 75 )
 
 [node name="Req3" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
 margin_left = 208.0
 margin_right = 308.0
-item_type = 3
-size = Vector2( 75, 75 )
+item_type = 4
 
 [node name="Req4" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
 margin_left = 312.0
 margin_right = 412.0
-item_type = 1
-size = Vector2( 75, 75 )
+item_type = 5
 
 [node name="Req5" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
 margin_top = 79.0
 margin_right = 100.0
 margin_bottom = 154.0
-item_type = 1
-size = Vector2( 75, 75 )
+item_type = 6

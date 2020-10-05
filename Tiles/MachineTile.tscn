@@ -1,16 +1,151 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Tiles/MachineTile.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Graphics/Belt0000.png" type="Texture" id=2]
 [ext_resource path="res://Tiles/Graphics/Machine0000.png" type="Texture" id=3]
-[ext_resource path="res://Tiles/Graphics/Hatch0000.png" type="Texture" id=4]
+[ext_resource path="res://Tiles/Graphics/Machine/PipeHoleBack0000.png" type="Texture" id=4]
 [ext_resource path="res://Tiles/Graphics/Pipes0000.png" type="Texture" id=5]
+[ext_resource path="res://Tiles/Graphics/Smoke0000.png" type="Texture" id=6]
+[ext_resource path="res://Tiles/Graphics/Machine/DialHand0000.png" type="Texture" id=7]
+[ext_resource path="res://Tiles/Graphics/Machine/PipeSingle0000.png" type="Texture" id=8]
+[ext_resource path="res://Tiles/Graphics/Machine/ColourDial0000.png" type="Texture" id=9]
+[ext_resource path="res://Tiles/Graphics/Machine/RoundDial0000.png" type="Texture" id=10]
+[ext_resource path="res://Tiles/Graphics/Machine/Plate0000.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 34.4861, 34.7195 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "Belt"
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, -0.345455, 0, 1, Vector2( 1, 0.654545 ), -1.31818, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.0794702, 1 )
+colors = PoolColorArray( 0.819608, 0.819608, 0.819608, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Building"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dial/Hand:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Building"
+length = 0.7
+loop = true
+step = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dial/Hand:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.401, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -270.0, 0.0, 360.0, 0.0, 90.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Machine/Belt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 0.01, 1e-05, 2.08442e-05, 0.001, 1e-05, 2.08442e-05, 0.001, 1e-05, 2.08442e-05, 0.001, 1e-05, 2.08442e-05 ),
+"update": 0,
+"values": [ Vector2( 0, 0.7 ), Vector2( 0, -0.3 ), Vector2( 0, -1.6 ), Vector2( 0, 1.6 ), Vector2( 0, -0.3 ), Vector2( 0, -1.6 ), Vector2( 0, 1.6 ), Vector2( 0, -0.3 ), Vector2( 0, -1.6 ), Vector2( 0, 1.6 ), Vector2( 0, -0.3 ), Vector2( 0, -1.6 ), Vector2( 0, 1.6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Slots/TopRight/Pipes/CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Slots/TopRight/MovingPipes/Pipe:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.000318885, 0.3, 0.5, 0.8, 1.2 ),
+"transitions": PoolRealArray( 2.2974, 0.435275, 1.68179, 0.615572, 1.18921 ),
+"update": 0,
+"values": [ Vector2( -6.27528, -16.3468 ), Vector2( -6.275, -10.333 ), Vector2( -6.275, -20.467 ), Vector2( -6.275, -14.803 ), Vector2( -6.27528, -16.3468 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Slots/TopRight/MovingPipes/Pipe3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.000318885, 0.7, 1.2 ),
+"transitions": PoolRealArray( 0.594604, 1.41421, 1 ),
+"update": 0,
+"values": [ Vector2( 8.49399, -8.92154 ), Vector2( 8.494, -15.603 ), Vector2( 8.49399, -8.92154 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Slots/TopRight/MovingPipes/Pipe2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.000318885, 0.4, 0.6, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.192871, -3.81538 ), Vector2( 0.192871, -3.81538 ), Vector2( 0.192871, -9.16077 ), Vector2( 0.192871, -3.81538 ), Vector2( 0.192871, -3.81538 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Slots/TopRight/ColourDial/Hand:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.7, 0.9, 1.2 ),
+"transitions": PoolRealArray( 0.517632, 1, 1, 1, 1, 1.51572, 1 ),
+"update": 0,
+"values": [ -33.8552, 56.864, 36.8602, 69.9788, 67.0491, -73.1031, -33.8552 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.201 ),
+"transitions": PoolRealArray( 0.659754, 2.07053, 0.420448, 1.7411, 0.707107, 1.46409, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.496941, 0.453382 ), Vector2( 0.5, 0.5 ), Vector2( 0.498165, 0.472029 ), Vector2( 0.5, 0.5 ), Vector2( 0.499388, 0.490676 ), Vector2( 0.5, 0.5 ), Vector2( 0.498776, 0.481353 ) ]
+}
+
+[sub_resource type="Animation" id=7]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -24,6 +159,110 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1e-05, 2.08442e-05 ),
 "update": 0,
 "values": [ Vector2( 0, 0.7 ), Vector2( 0, -0.3 ), Vector2( 0, -1.6 ), Vector2( 0, 1.6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Slots/TopRight/Pipes/CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Slots/TopLeft/MovingPipes/Pipe:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.9 ),
+"transitions": PoolRealArray( 2, 0.406126, 1 ),
+"update": 0,
+"values": [ Vector2( -0.602, -15.707 ), Vector2( -0.602, -7.698 ), Vector2( -0.602, -15.707 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Slots/TopLeft/MovingPipes/Pipe3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.9 ),
+"transitions": PoolRealArray( 0.435275, 2.14355, 1.8025, 1 ),
+"update": 0,
+"values": [ Vector2( -10.527, -7.506 ), Vector2( -10.527, -12.712 ), Vector2( -10.527, -14.013 ), Vector2( -10.527, -7.506 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Slots/TopLeft/MovingPipes/Pipe2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 0.392292, 1.36604, 1 ),
+"update": 0,
+"values": [ Vector2( 6.70022, -2.39712 ), Vector2( 6.7, -4.733 ), Vector2( 6.7, -4.9 ), Vector2( 6.70022, -2.39712 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Slots/TopLeft/ColourDial/Hand:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7, 0.9 ),
+"transitions": PoolRealArray( 4.43828, 0.450625, 1 ),
+"update": 0,
+"values": [ -69.0186, 59.9618, -69.0186 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Slots/TopLeft/Pipes/CPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Slots/TopLeft/Pipes/CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.000519358 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [node name="MachineTile" type="StaticBody2D"]
@@ -42,24 +281,195 @@ z_index = 1
 
 [node name="Machine" type="Sprite" parent="Sprite"]
 position = Vector2( -6.69096, -0.670559 )
+scale = Vector2( 1.01916, 0.92207 )
 texture = ExtResource( 3 )
 offset = Vector2( 6.69096, 0.670559 )
 
 [node name="Belt" type="Sprite" parent="Sprite/Machine"]
-position = Vector2( 6.69096, 0.98154 )
+position = Vector2( 0, 0.7 )
 texture = ExtResource( 2 )
+offset = Vector2( 6.66771, 0.362804 )
 
-[node name="Pipes" type="Sprite" parent="Sprite"]
+[node name="Slots" type="Sprite" parent="Sprite"]
+
+[node name="TopRight" type="Sprite" parent="Sprite/Slots"]
+
+[node name="Pipes" type="Sprite" parent="Sprite/Slots/TopRight"]
 texture = ExtResource( 5 )
 
-[node name="Hatch" type="Sprite" parent="Sprite"]
-visible = false
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite/Slots/TopRight/Pipes"]
+self_modulate = Color( 1, 1, 1, 0.615686 )
+position = Vector2( 36.4285, -112.508 )
+rotation = 0.231984
+scale = Vector2( 1.5, 1.5 )
+emitting = false
+amount = 25
+lifetime = 4.0
+lifetime_randomness = 0.2
+texture = ExtResource( 6 )
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 1 )
+direction = Vector2( 0.1, -1 )
+gravity = Vector2( 5, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.5
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+angle = 90.0
+angle_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+hue_variation_random = 1.0
+
+[node name="ColourDial" type="Sprite" parent="Sprite/Slots/TopRight"]
+position = Vector2( 31.1745, -96.7511 )
+texture = ExtResource( 9 )
+
+[node name="Hand" type="Sprite" parent="Sprite/Slots/TopRight/ColourDial"]
+position = Vector2( 0.0312347, 0.84639 )
+rotation = -0.590885
+texture = ExtResource( 7 )
+offset = Vector2( -0.0312347, -2.03389 )
+
+[node name="MovingPipes" type="Sprite" parent="Sprite/Slots/TopRight"]
+position = Vector2( 27.8406, -85.3035 )
+
+[node name="Pipe" type="Sprite" parent="Sprite/Slots/TopRight/MovingPipes"]
+position = Vector2( -6.27528, -16.3468 )
+texture = ExtResource( 8 )
+
+[node name="Pipe3" type="Sprite" parent="Sprite/Slots/TopRight/MovingPipes"]
+position = Vector2( 8.49399, -8.92154 )
+scale = Vector2( 0.874075, 0.874075 )
+texture = ExtResource( 8 )
+
+[node name="Pipe2" type="Sprite" parent="Sprite/Slots/TopRight/MovingPipes"]
+position = Vector2( 0.192871, -3.81538 )
+scale = Vector2( 1.07571, 0.770984 )
+texture = ExtResource( 8 )
+
+[node name="Back" type="Sprite" parent="Sprite/Slots/TopRight/MovingPipes"]
+position = Vector2( 0, 2.62204 )
+scale = Vector2( 1, 1.14173 )
 texture = ExtResource( 4 )
+
+[node name="TopLeft" type="Sprite" parent="Sprite/Slots"]
+position = Vector2( -67.959, 30.9245 )
+
+[node name="Pipes" type="Sprite" parent="Sprite/Slots/TopLeft"]
+texture = ExtResource( 5 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite/Slots/TopLeft/Pipes"]
+self_modulate = Color( 1, 1, 1, 0.615686 )
+position = Vector2( 36.4285, -112.508 )
+rotation = 0.231984
+scale = Vector2( 1.5, 1.5 )
+emitting = false
+amount = 25
+lifetime = 4.0
+lifetime_randomness = 0.2
+texture = ExtResource( 6 )
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 1 )
+direction = Vector2( 0.1, -1 )
+gravity = Vector2( 5, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.5
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+angle = 90.0
+angle_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+hue_variation_random = 1.0
+
+[node name="ColourDial" type="Sprite" parent="Sprite/Slots/TopLeft"]
+visible = false
+position = Vector2( 31.1745, -96.7511 )
+texture = ExtResource( 9 )
+
+[node name="Hand" type="Sprite" parent="Sprite/Slots/TopLeft/ColourDial"]
+position = Vector2( 0.0312347, 0.84639 )
+rotation = -1.2046
+texture = ExtResource( 7 )
+offset = Vector2( -0.0312347, -2.03389 )
+
+[node name="MovingPipes" type="Sprite" parent="Sprite/Slots/TopLeft"]
+visible = false
+position = Vector2( 27.8406, -85.3035 )
+
+[node name="Pipe" type="Sprite" parent="Sprite/Slots/TopLeft/MovingPipes"]
+position = Vector2( -0.602, -15.707 )
+scale = Vector2( 1.5244, 1 )
+texture = ExtResource( 8 )
+
+[node name="Pipe3" type="Sprite" parent="Sprite/Slots/TopLeft/MovingPipes"]
+position = Vector2( -10.527, -7.506 )
+scale = Vector2( 1.00517, 0.874075 )
+texture = ExtResource( 8 )
+
+[node name="Pipe2" type="Sprite" parent="Sprite/Slots/TopLeft/MovingPipes"]
+position = Vector2( 6.70022, -2.39712 )
+scale = Vector2( 0.932693, 0.694321 )
+texture = ExtResource( 8 )
+
+[node name="Back" type="Sprite" parent="Sprite/Slots/TopLeft/MovingPipes"]
+position = Vector2( 0, 2.62204 )
+scale = Vector2( 1, 1.14173 )
+texture = ExtResource( 4 )
+
+[node name="FrontLeft" type="Sprite" parent="Sprite/Slots"]
+
+[node name="Dial" type="Sprite" parent="Sprite/Slots/FrontLeft"]
+visible = false
+position = Vector2( -47.7209, 22.0735 )
+texture = ExtResource( 10 )
+
+[node name="Hand" type="Sprite" parent="Sprite/Slots/FrontLeft/Dial"]
+position = Vector2( 0.0485458, -0.249729 )
+rotation = 3.14159
+texture = ExtResource( 7 )
+offset = Vector2( -0.0485458, -2.23059 )
+
+[node name="FrontLeft" type="AnimationPlayer" parent="Sprite/Slots/FrontLeft"]
+anims/Building = SubResource( 4 )
+
+[node name="Plate" type="Sprite" parent="Sprite/Slots/FrontLeft"]
+position = Vector2( -47.4776, 22.1 )
+scale = Vector2( 1.40519, 1.40519 )
+texture = ExtResource( 11 )
+
+[node name="FrontRight" type="Sprite" parent="Sprite/Slots"]
+position = Vector2( 74.3254, 4.45952 )
+scale = Vector2( 0.768498, 0.768498 )
+
+[node name="Dial" type="Sprite" parent="Sprite/Slots/FrontRight"]
+position = Vector2( -47.7209, 22.0735 )
+texture = ExtResource( 10 )
+
+[node name="Hand" type="Sprite" parent="Sprite/Slots/FrontRight/Dial"]
+position = Vector2( 0.338276, -0.539547 )
+rotation = -4.71239
+texture = ExtResource( 7 )
+offset = Vector2( -0.0485458, -2.23059 )
+
+[node name="Plate" type="Sprite" parent="Sprite/Slots/FrontRight"]
+position = Vector2( -47.4776, 22.1 )
+scale = Vector2( 1.40519, 1.40519 )
+texture = ExtResource( 11 )
+
+[node name="FrontRight" type="AnimationPlayer" parent="Sprite/Slots/FrontRight"]
+anims/Building = SubResource( 5 )
 
 [node name="WorkingTimer" type="Timer" parent="."]
 process_mode = 0
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Belt = SubResource( 2 )
+[node name="TopRight" type="AnimationPlayer" parent="."]
+anims/Building = SubResource( 6 )
+anims/Idle = SubResource( 7 )
+
+[node name="TopLeft" type="AnimationPlayer" parent="."]
+anims/Building = SubResource( 8 )
+anims/Idle = SubResource( 9 )
 [connection signal="timeout" from="WorkingTimer" to="." method="_on_WorkingTimer_timeout"]

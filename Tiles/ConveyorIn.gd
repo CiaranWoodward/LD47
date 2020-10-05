@@ -27,6 +27,7 @@ func _GenItem():
 	if is_instance_valid(cur_itemvis):
 		$ItemPoint.add_child(cur_itemvis)
 	$AnimationPlayerIn.play("In")
+	$AnimationPlayerIn.advance(0)
 	return true
 
 func HasItem():
