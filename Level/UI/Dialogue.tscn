@@ -111,10 +111,11 @@ __meta__ = {
 }
 
 [node name="Artie" type="Control" parent="NinePatchRect"]
-margin_left = 875.05
-margin_top = -114.221
-margin_right = 915.05
-margin_bottom = -74.2207
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -197.0
+margin_bottom = 174.0
+rect_pivot_offset = Vector2( 356.448, 275.925 )
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -123,11 +124,13 @@ __meta__ = {
 [node name="Happy" type="TextureRect" parent="NinePatchRect/Artie"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -40.0
-margin_right = 470.0
-margin_bottom = 510.0
+margin_left = -365.817
+margin_top = -143.525
+margin_right = 144.183
+margin_bottom = 366.475
 rect_rotation = 12.0733
 rect_scale = Vector2( 0.67585, 0.67585 )
+rect_pivot_offset = Vector2( 253.707, 229.786 )
 texture = ExtResource( 5 )
 expand = true
 __meta__ = {
@@ -167,10 +170,10 @@ __meta__ = {
 [node name="Text" type="RichTextLabel" parent="NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 23.9439
-margin_top = 22.0562
-margin_right = -260.056
-margin_bottom = -22.9438
+margin_left = 24.0
+margin_top = 22.0
+margin_right = -279.0
+margin_bottom = -23.0
 mouse_filter = 1
 visible_characters = 500
 text = "Hello, i'm happy"
