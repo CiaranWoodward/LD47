@@ -5,9 +5,9 @@
 [node name="ArrowTile" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.4, 0.38 )
 
 [node name="ArrowTile" type="Sprite" parent="Sprite"]
-position = Vector2( 0.467102, -0.00585938 )
+position = Vector2( -0.373779, -17.6647 )
 texture = ExtResource( 1 )
 offset = Vector2( -1.80057, -1.66568 )

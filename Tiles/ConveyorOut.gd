@@ -24,6 +24,7 @@ func GiveItem(item : int):
 	$Fader.remove_all()
 	$Fader.interpolate_property(cur_itemvis, "modulate", cur_itemvis.modulate, Color(1, 1, 1, 0), REMOVE_TIME, Tween.TRANS_SINE, Tween.EASE_IN)
 	$Fader.start()
+	$AnimationPlayer.play("Out")
 	return true
 
 func IsStopper(_itemtype):
