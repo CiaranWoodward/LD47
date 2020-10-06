@@ -12,6 +12,7 @@ export(Global.Dir) var direction = Global.Dir.UP
 var inventory = []
 var isReady = true
 var pendingRelease = false
+var pendingPickup = false
 var dropTile : Node2D
 
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +40,8 @@ func _exit_tree():
 func _checkComplete():
 	var complete = true
 	
+	if pendingPickup:
+		return
 	for check in inventory:
 		if !check:
 			complete = false
@@ -52,18 +55,20 @@ func _checkComplete():
 		_set_building(true)
 
 func _item_taken():
-	isReady = true
+	pendingPickup = false
+	_checkComplete()
 
 func _release_item():
 	pendingRelease = false
+	isReady = true
 	if item_out == Global.ItemType.ROBO:
 		var newRobo = preload("res://Robo/Robo.tscn").instance()
 		newRobo.position = dropTile.position
 		get_parent().add_child(newRobo)
-		isReady = true
 	else:
+		pendingPickup = true
 		dropTile._GiveItem(item_out)
-	
+
 func _zone_cleared():
 	if pendingRelease:
 		_release_item()

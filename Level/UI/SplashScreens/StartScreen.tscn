@@ -7,15 +7,15 @@
 [ext_resource path="res://Graphics/UI/StartButtonHover0000.png" type="Texture" id=5]
 [ext_resource path="res://Graphics/UI/StartButtonPressed0000.png" type="Texture" id=6]
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 152, 52 )
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 152, 52 )
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 152, 52 )
 
@@ -50,9 +50,9 @@ margin_left = 13.4848
 margin_top = -41.5521
 margin_right = 273.485
 margin_bottom = 46.4476
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 text = "START"
 clip_text = true
 expand_icon = true

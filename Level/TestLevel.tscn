@@ -22,9 +22,6 @@ position = Vector2( 600, 525 )
 [node name="Robo3" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 375, 225 )
 
-[node name="Robo2" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 975, 225 )
-
 [node name="Robo4" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 225, 300 )
 
@@ -259,8 +256,6 @@ item_type = 2
 
 [node name="ConveyorOut" parent="Level" instance=ExtResource( 9 )]
 position = Vector2( 75, 300 )
-REMOVE_TIME = 0.4
 
 [node name="ConveyorOut2" parent="Level" instance=ExtResource( 9 )]
 position = Vector2( 450, 525 )
-REMOVE_TIME = 0.4

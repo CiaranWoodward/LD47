@@ -27,6 +27,7 @@ func regen():
 func _on_BuildSimple_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && event.button_index == BUTTON_LEFT:
+			Global.set_deconstruct_mode(false)
 			if is_instance_valid(Global.current_level) && Global.take_item(_itemtype):
 				var ins = _instancetype.instance()
 				ins.item_id = _itemtype

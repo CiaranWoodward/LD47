@@ -18,6 +18,8 @@ func _ready():
 func _exit_tree():
 	request_ready()
 	Global.deposit_item(item_id)
+	if get_parent().has_method("rm_tile"):
+		get_parent().rm_tile(get_parent().world_to_tile_coords(position))
 
 func _setplayerbuilt(newval):
 	player_built = newval

@@ -6,7 +6,7 @@ enum Emotion {HAPPY, ANGRY, NORMAL}
 export(Array, String, MULTILINE) var speech = [] setget _setspeech
 export(Array, Emotion) var emotion = [] setget _setemotion
 
-onready var textanim = get_node("NinePatchRect/Text/Animate")
+onready var textanim : AnimationPlayer = get_node("NinePatchRect/Text/Animate")
 onready var text = get_node("NinePatchRect/Text")
 
 onready var happy = get_node("NinePatchRect/Artie/Happy")
@@ -59,6 +59,7 @@ func _advance_text():
 	if !active:
 		return
 	if text.visible_characters < text.text.length():
+		textanim.seek(textanim.current_animation_length)
 		return
 	current_stage += 1
 	_set_text(current_stage)

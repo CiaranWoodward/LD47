@@ -27,7 +27,7 @@ func _ready():
 	$"Control/FloorShadow2".rect_size.y = LEVEL_SIZE_X * TILE_SIZE
 	$"Control/FloorShadow3".rect_size.y = LEVEL_SIZE_X * TILE_SIZE
 	Global.current_level = self
-	Global.deposit_item(Global.ItemType.ARROW_PLATE)
+	Global.set_deconstruct_mode(false)
 
 func world_to_tile_coords(pos : Vector2):
 	var retval : Vector2 = pos

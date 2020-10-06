@@ -50,11 +50,12 @@ position = Vector2( 150, 75 )
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 675, 525 )
 item_type = 4
-item_period = 2.0
+item_period = 5.0
 
 [node name="ConveyorIn2" parent="Level" instance=ExtResource( 3 )]
 position = Vector2( 300, 0 )
 item_type = 10
+item_period = 5.0
 
 [node name="MachineTile" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 150, 525 )

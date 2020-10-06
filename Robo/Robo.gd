@@ -174,7 +174,6 @@ func _physics_process(delta):
 			if is_instance_valid(kc):
 				_handle_collision(kc)
 
-
 func _on_MoveTweener_tween_all_completed():
 	match cur_state:
 		State.STOPPING:

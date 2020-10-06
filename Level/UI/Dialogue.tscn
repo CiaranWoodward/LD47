@@ -178,7 +178,6 @@ margin_right = -279.0
 margin_bottom = -23.0
 mouse_filter = 1
 visible_characters = 500
-text = "Hello, i'm happy"
 __meta__ = {
 "_edit_use_anchors_": false
 }

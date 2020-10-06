@@ -33,6 +33,8 @@ func GiveItem(item : int):
 func GiveSelf(dirvec : Vector2, robo : KinematicBody2D):
 	if dirvec != Vector2(0, -1):
 		return false
+	if _hasItem():
+		return false
 	robo.get_parent().remove_child(robo)
 	robo.collision_layer = 0
 	robo.collision_mask = 0
@@ -46,3 +48,4 @@ func IsStopper(_itemtype):
 func _on_Fader_tween_completed(object, key):
 	if key == ":modulate":
 		cur_itemvis.queue_free()
+		cur_itemvis = null

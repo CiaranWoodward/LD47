@@ -21,7 +21,7 @@ margin_top = 0.0
 margin_bottom = 0.0
 speech = [ "Hello and congrats for winning a private tour of the main factory of Arthur Fisher Intelligence!
 ", "You are so lucky to be here meeting me!", "I am the one and only Arthur Fisher, but you may call me Artie for short.", "There are many rooms in our complex here at AFI, this is one of the smaller factories.", ". . . ", "Don’t mind him…", "STUPID THING", "The worker robots aren’t the smartest beings, bless them…", "It seems that he’s stuck in a loop...", "I know!", "While you’re here, why don’t you learn how the factory works and you can help him out!", "I’ll show you what the different parts of the factory do.", "For your own interest of course...", "Doesn't that sound fun!", "On the right, you can pick up a wall to stop him going round and round and round...", "BRAINLESS BOT!", "*ahem* I mean...", "What a little cutie!", "Anyway, if you pick up that wall and place it in a clever place, he might stop going in circles.", "Robots will walk over an arrow tile without changing direction if they aren't stopped by a wall, machine or item.", "See that arrow on the right wall that's pointing left?", "Seems like SOME IDIOT has removed the wall block that's supposed to be on the tile above it.", "Be a darling and pop it there would you?", "Now, he can break free!", "He'll pick up the iron bar and put it in that factory there.", "When the factory has two iron bars, it'll make a plate.", "Then, our little friend there who has been walking back and forth can pick it up!", "The \"out\" conveyor will take the plate to the right place in the factory for us.", "See! It's super fun! What a great prize you won!", "When, you're ready, you can click the button there that says \"Next Level\" and we can continue with our tour!" ]
-emotion = [ 0, 2, 2, 2, 2, 1, 0, 2, 2, 0, 2, 2, 2, 0, 2, 1, 2, 0, 2, 2, 2, 1, 0, 2, 2, 2, 2, 2, 0, 2 ]
+emotion = [ 0, 2, 2, 2, 2, 2, 1, 0, 2, 0, 2, 2, 2, 0, 2, 1, 2, 0, 2, 2, 2, 1, 0, 2, 2, 2, 2, 2, 0, 2 ]
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
 LEVEL_SIZE_Y = 8
@@ -94,6 +94,7 @@ position = Vector2( 450, 300 )
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 5 )]
 position = Vector2( 450, 375 )
 item_type = 1
+item_period = 5.0
 
 [node name="MachineTile" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 525, 150 )
@@ -101,3 +102,4 @@ direction = 3
 
 [node name="ConveyorOut" parent="Level" instance=ExtResource( 7 )]
 position = Vector2( 225, 150 )
+REMOVE_TIME = 0.4

@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 20 ), Vector2( 0, 0 ), Vector2( 0, 20 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Out"
 length = 0.4
 tracks/0/type = "value"
@@ -83,7 +83,7 @@ anims/Belt = SubResource( 2 )
 
 [node name="AnimationPlayerOut" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
-anims/Out = SubResource( 5 )
+anims/Out = SubResource( 3 )
 
 [node name="Fader" type="Tween" parent="."]
 [connection signal="tween_completed" from="Fader" to="." method="_on_Fader_tween_completed"]
