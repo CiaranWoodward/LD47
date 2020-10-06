@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Graphics/UI/ButtonPressed0000.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/UI/Button0000.png" type="Texture" id=2]
@@ -12,6 +12,10 @@
 [ext_resource path="res://Level/UI/BuildMenu.gd" type="Script" id=10]
 [ext_resource path="res://Level/UI/Deconstruct.gd" type="Script" id=11]
 [ext_resource path="res://Level/UI/NextLevel.gd" type="Script" id=12]
+[ext_resource path="res://Graphics/UI/StartButton0000.png" type="Texture" id=13]
+[ext_resource path="res://Graphics/UI/StartButtonHover0000.png" type="Texture" id=14]
+[ext_resource path="res://Graphics/UI/StartButtonPressed0000.png" type="Texture" id=15]
+[ext_resource path="res://Graphics/UI/Poppins-Regular.ttf" type="DynamicFontData" id=16]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
@@ -62,6 +66,25 @@ VScrollBar/styles/grabber_pressed = null
 VScrollBar/styles/scroll = null
 VScrollBar/styles/scroll_focus = null
 
+[sub_resource type="DynamicFont" id=9]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = -4
+font_data = ExtResource( 16 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 152, 52 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 152, 52 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 152, 52 )
+
 [node name="HUD" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
@@ -69,6 +92,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control"]
+margin_left = 20.7652
+margin_top = 20.2933
+margin_right = 70.7652
+margin_bottom = 65.2933
+custom_fonts/font = SubResource( 9 )
+text = ">>"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -127,6 +161,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 10 )
 
+[node name="Deconstruct" type="Button" parent="PanelContainer/MarginContainer/ScrollContainer/BuildMenu"]
+margin_right = 360.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 200, 60 )
+theme = ExtResource( 8 )
+toggle_mode = true
+text = "Deconstruct"
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BuildSimple" parent="PanelContainer/MarginContainer/ScrollContainer/BuildMenu" instance=ExtResource( 5 )]
 visible = false
 margin_left = 0.0
@@ -148,34 +194,25 @@ margin_top = 443.0
 margin_right = 348.0
 margin_bottom = 788.0
 
-[node name="Deconstruct" type="Button" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = -70.0
-margin_right = 70.0
-margin_bottom = -10.0
-theme = ExtResource( 8 )
-toggle_mode = true
-text = "Deconstruct"
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="NextLevel" type="Button" parent="."]
 visible = false
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 701.447
+margin_left = -578.553
 margin_top = -79.3438
-margin_right = 859.447
+margin_right = -418.553
 margin_bottom = -19.3438
+rect_min_size = Vector2( 160, 60 )
 theme = ExtResource( 8 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 text = "Next Level"
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="toggled" from="Deconstruct" to="Deconstruct" method="_on_Deconstruct_toggled"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/ScrollContainer/BuildMenu/Deconstruct" to="PanelContainer/MarginContainer/ScrollContainer/BuildMenu/Deconstruct" method="_on_Deconstruct_toggled"]
 [connection signal="pressed" from="NextLevel" to="NextLevel" method="_on_NextLevel_pressed"]

@@ -24,7 +24,6 @@ LEVEL_SIZE_Y = 7
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 7 )]
 position = Vector2( 600, 75 )
 item_type = 3
-item_period = 5.0
 
 [node name="WallTile" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 600, 0 )
@@ -38,4 +37,3 @@ direction = 3
 
 [node name="ConveyorOut" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 225, 375 )
-REMOVE_TIME = 0.4

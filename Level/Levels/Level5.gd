@@ -19,6 +19,7 @@ func _ready():
 	Global.deposit_item(Global.ItemType.ARROW_PLATE)
 	Global.deposit_item(Global.ItemType.ARROW_PLATE)
 	Global.deposit_item(Global.ItemType.ARROW_PLATE)
+	Global.deposit_item(Global.ItemType.ROBO)
 	Global.connect("itemcounts_changed", self, "check_completion")
 
 func check_completion():

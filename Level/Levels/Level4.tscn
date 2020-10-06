@@ -29,21 +29,21 @@ LEVEL_SIZE_X = 14
 LEVEL_SIZE_Y = 14
 
 [node name="MachineTile" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 525, 150 )
+position = Vector2( 600, 150 )
 direction = 3
 
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 6 )]
-position = Vector2( 675, 75 )
+position = Vector2( 750, 75 )
 item_type = 4
 item_period = 2.0
 
 [node name="MoveTile" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 675, 150 )
+position = Vector2( 750, 150 )
 rotation = 4.71239
 direction = 3
 
 [node name="MoveTile2" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 600, 150 )
+position = Vector2( 675, 150 )
 rotation = 3.14159
 direction = 2
 
@@ -61,7 +61,7 @@ rotation = 3.14159
 direction = 2
 
 [node name="MoveTile3" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 600, 225 )
+position = Vector2( 675, 225 )
 rotation = 1.5708
 direction = 1
 
@@ -80,14 +80,19 @@ position = Vector2( 300, 75 )
 rotation = 4.71239
 direction = 3
 
+[node name="MoveTile13" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 450, 150 )
+rotation = 4.71239
+direction = 3
+
 [node name="MoveTile4" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 675, 225 )
+position = Vector2( 750, 225 )
 
 [node name="WallTile5" parent="Level" instance=ExtResource( 9 )]
-position = Vector2( 675, 0 )
+position = Vector2( 750, 0 )
 
 [node name="WallTile2" parent="Level" instance=ExtResource( 9 )]
-position = Vector2( 750, 225 )
+position = Vector2( 825, 225 )
 
 [node name="WallTile6" parent="Level" instance=ExtResource( 9 )]
 position = Vector2( 375, 0 )
@@ -99,16 +104,16 @@ position = Vector2( 150, 0 )
 position = Vector2( 0, 300 )
 
 [node name="Robo" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 675, 150 )
+position = Vector2( 750, 150 )
 
 [node name="Robo5" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 600, 150 )
+position = Vector2( 675, 150 )
 
 [node name="Robo4" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 675, 225 )
+position = Vector2( 750, 225 )
 
 [node name="Robo3" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 600, 225 )
+position = Vector2( 675, 225 )
 
 [node name="Robo2" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 300, 0 )
@@ -119,7 +124,6 @@ direction = 2
 
 [node name="ConveyorOut" parent="Level" instance=ExtResource( 10 )]
 position = Vector2( 0, 375 )
-REMOVE_TIME = 0.4
 
 [node name="ConveyorIn2" parent="Level" instance=ExtResource( 6 )]
 position = Vector2( 150, 75 )
@@ -127,5 +131,5 @@ item_type = 6
 item_period = 15.0
 
 [node name="MachineTile3" parent="Level" instance=ExtResource( 11 )]
-position = Vector2( 600, 300 )
+position = Vector2( 675, 300 )
 direction = 2

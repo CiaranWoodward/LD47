@@ -1,9 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Graphics/UI/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Graphics/UI/Start0000.png" type="Texture" id=2]
 [ext_resource path="res://Level/UI/SplashScreens/Button.gd" type="Script" id=3]
 [ext_resource path="res://Graphics/UI/StartButton0000.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/UI/StartButtonHover0000.png" type="Texture" id=5]
+[ext_resource path="res://Graphics/UI/StartButtonPressed0000.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 152, 52 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 152, 52 )
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
@@ -18,25 +28,30 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 289.0
-margin_top = 78.0
-margin_right = -219.0
-margin_bottom = -123.0
+anchor_left = 0.517
+anchor_top = 0.48
+anchor_right = 0.517
+anchor_bottom = 0.48
+margin_left = -356.45
+margin_top = -234.476
+margin_right = 355.55
+margin_bottom = 234.524
 texture = ExtResource( 2 )
 expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
-anchor_right = 1.0
+[node name="Button" type="Button" parent="TextureRect"]
+anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 463.525
-margin_top = 607.003
-margin_right = -429.475
-margin_bottom = -24.9966
+margin_left = 13.4848
+margin_top = -41.5521
+margin_right = 273.485
+margin_bottom = 46.4476
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 1 )
 text = "START"
 clip_text = true
@@ -45,4 +60,4 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="TextureRect/Button" to="TextureRect/Button" method="_on_Button_pressed"]
