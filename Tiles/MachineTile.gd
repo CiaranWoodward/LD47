@@ -31,11 +31,27 @@ func _ready():
 	dropTile.connect("item_taken", self, "_item_taken")
 	dropTile.connect("zone_cleared", self, "_zone_cleared")
 	_set_building(false)
+	_update_overlay()
 
 func _exit_tree():
 	if Engine.editor_hint:
 		return
 	dropTile.queue_free()
+
+func _update_overlay():
+	if !isReady:
+		$Overlay.visible = false
+		return
+	$Overlay.visible = true
+	var items_req = []
+	for i in range(required_items.size()):
+		if !inventory[i]:
+			items_req.push_back(required_items[i])
+	if items_req.size() == 0:
+		$Overlay.visible = false
+		return
+	$Overlay.visible = true
+	$"Overlay/MachineOverlay".SetOverlay(items_req)
 
 func _checkComplete():
 	var complete = true
@@ -53,6 +69,7 @@ func _checkComplete():
 		isReady = false
 		get_node("WorkingTimer").start(work_time);
 		_set_building(true)
+		_update_overlay()
 
 func _item_taken():
 	pendingPickup = false
@@ -68,6 +85,7 @@ func _release_item():
 	else:
 		pendingPickup = true
 		dropTile._GiveItem(item_out)
+	_update_overlay()
 
 func _zone_cleared():
 	if pendingRelease:
@@ -101,7 +119,8 @@ func GiveItem(item : int):
 			retval = true
 			break
 	
-	_checkComplete()	
+	_checkComplete()
+	_update_overlay()
 	return retval
 
 func _on_WorkingTimer_timeout():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Level/UI/Dialogue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Level.tscn" type="PackedScene" id=2]
@@ -8,6 +8,12 @@
 [ext_resource path="res://Level/Levels/Level6.gd" type="Script" id=6]
 [ext_resource path="res://Tiles/SpecificMachines/RoboMachine.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Tiles/SpecificMachines/RoboPartMachine.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Tiles/SpecificMachines/WiresMachine.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Tiles/SpecificMachines/ArrowTileMachine.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Tiles/SpecificMachines/WallMachine.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Tiles/SpecificMachines/RoboHeadMachine.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Tiles/SpecificMachines/BlockTileMachine.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Tiles/SpecificMachines/CircuitboardMachine.tscn" type="PackedScene" id=14]
 
 [node name="Level6" type="Node2D"]
 script = ExtResource( 6 )
@@ -25,71 +31,96 @@ LEVEL_SIZE_X = 20
 LEVEL_SIZE_Y = 20
 
 [node name="WallTile" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 150, 0 )
-
-[node name="WallTile2" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 1050, 0 )
+position = Vector2( 1350, 75 )
 
 [node name="WallTile3" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 1275, 150 )
+position = Vector2( 900, 975 )
+
+[node name="WallTile2" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 1050, 75 )
 
 [node name="WallTile4" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 525, 525 )
+position = Vector2( 450, 75 )
 
 [node name="WallTile5" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 150, 900 )
+position = Vector2( 750, 525 )
 
 [node name="WallTile6" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 675, 1275 )
+position = Vector2( 1425, 1200 )
 
 [node name="WallTile7" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 1125, 1050 )
-
-[node name="WallTile8" parent="Level" instance=ExtResource( 3 )]
-position = Vector2( 1425, 825 )
-
-[node name="ConveyorOut" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 150, 75 )
 
+[node name="WallTile9" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 600, 975 )
+
+[node name="WallTile8" parent="Level" instance=ExtResource( 3 )]
+position = Vector2( 0, 1200 )
+
+[node name="ConveyorOut" parent="Level" instance=ExtResource( 4 )]
+
+[node name="ConveyorOut5" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 0, 1275 )
+
+[node name="ConveyorOut6" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 1425, 1275 )
+
+[node name="ConveyorOut2" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 750, 600 )
+
+[node name="ConveyorOut4" parent="Level" instance=ExtResource( 4 )]
+position = Vector2( 1425, 0 )
+
 [node name="ConveyorIn" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 1275, 225 )
+position = Vector2( 1050, 150 )
 item_type = 4
 item_period = 5.0
 
-[node name="ConveyorIn2" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 525, 600 )
-item_type = 5
-item_period = 30.0
+[node name="ConveyorIn8" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 150, 150 )
+item_type = 4
+item_period = 5.0
 
-[node name="ConveyorIn3" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 1425, 900 )
-item_type = 13
+[node name="ConveyorIn10" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 600, 1050 )
+item_type = 4
 item_period = 5.0
 
 [node name="ConveyorIn4" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 1050, 75 )
+position = Vector2( 1350, 150 )
 item_type = 3
 item_period = 5.0
 
-[node name="ConveyorIn5" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 150, 975 )
-item_type = 6
-item_period = 5.0
-
-[node name="ConveyorIn6" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 1125, 1125 )
+[node name="ConveyorIn9" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 450, 150 )
 item_type = 3
 item_period = 5.0
 
-[node name="ConveyorIn7" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 675, 1350 )
-item_type = 10
+[node name="ConveyorIn11" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 900, 1050 )
+item_type = 3
 item_period = 5.0
 
-[node name="MachineTile" parent="Level" instance=ExtResource( 7 )]
-position = Vector2( 450, 975 )
-direction = 1
+[node name="MachineTile" parent="Level" instance=ExtResource( 9 )]
+position = Vector2( 300, 525 )
 
-[node name="MachineTile2" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 900, 825 )
-direction = 2
+[node name="MachineTile2" parent="Level" instance=ExtResource( 14 )]
+position = Vector2( 1200, 525 )
+
+[node name="MachineTile3" parent="Level" instance=ExtResource( 10 )]
+position = Vector2( 900, 750 )
+
+[node name="MachineTile4" parent="Level" instance=ExtResource( 13 )]
+position = Vector2( 600, 750 )
+
+[node name="MachineTile5" parent="Level" instance=ExtResource( 11 )]
+position = Vector2( 750, 300 )
+
+[node name="MachineTile6" parent="Level" instance=ExtResource( 8 )]
+position = Vector2( 300, 975 )
+
+[node name="MachineTile7" parent="Level" instance=ExtResource( 12 )]
+position = Vector2( 1200, 975 )
+
+[node name="MachineTile8" parent="Level" instance=ExtResource( 7 )]
+position = Vector2( 750, 1200 )

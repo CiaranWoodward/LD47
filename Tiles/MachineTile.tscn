@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Tiles/MachineTile.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/Graphics/Belt0000.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Tiles/Graphics/Machine/ColourDial0000.png" type="Texture" id=9]
 [ext_resource path="res://Tiles/Graphics/Machine/RoundDial0000.png" type="Texture" id=10]
 [ext_resource path="res://Tiles/Graphics/Machine/Plate0000.png" type="Texture" id=11]
+[ext_resource path="res://Tiles/MachineOverlay.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 34.4861, 34.7195 )
@@ -148,6 +149,7 @@ tracks/6/keys = {
 [sub_resource type="Animation" id=7]
 length = 0.3
 loop = true
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/Machine/Belt:position")
 tracks/0/interp = 1
@@ -271,6 +273,12 @@ collision_layer = 16
 script = ExtResource( 1 )
 required_items = [ 0 ]
 
+[node name="Overlay" type="Position2D" parent="."]
+position = Vector2( 0, -63.984 )
+z_index = 1000
+
+[node name="MachineOverlay" parent="Overlay" instance=ExtResource( 12 )]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
@@ -286,7 +294,7 @@ texture = ExtResource( 3 )
 offset = Vector2( 6.69096, 0.670559 )
 
 [node name="Belt" type="Sprite" parent="Sprite/Machine"]
-position = Vector2( 0, 0.7 )
+position = Vector2( 0, 1.6 )
 texture = ExtResource( 2 )
 offset = Vector2( 6.66771, 0.362804 )
 
